@@ -1,14 +1,14 @@
-site_name: AcessoGov - Mercado Privado
+site_name: ACESSOGOV - MERCADO PRIVADO
 theme: 
  name: material
  palette:
    - scheme: default
-     primary: purple
+     primary: blue
      toggle:
       icon: material/weather-night
       name: Modo noturno
    - scheme: slate
-     primary: deep purple
+     primary: deep blue
      toggle:
       icon: material/weather-sunny
       name: Modo claro

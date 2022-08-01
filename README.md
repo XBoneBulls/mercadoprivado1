@@ -1,13 +1,65 @@
 # Acesso Gov - Mercado Privado
 
-Projeto para disponibilização do Acesso Gov para compra e utilização por empresas privadas.
+Roteiro de Integração do Login Único para o mercado privado
+===================================================
 
-Para poder visualizar na tua máquina a página com toda a documentação que está no repositório remoto, execute os seguintes passos:
 
-1 - No GitLab do Serpro vá até o repositório do Acesso-Gov para o mercado privado;
-2 - Clique em "Code" e copie o link SSH; (lembrando que precisará estar com a sua chave ssh configurada)
-3 - Na sua máquina crie uma pasta no local que quiser armazenar os dados deste projeto;
-4 - Abra a pasta criada, clique com o botão direito e execute o Git Bash;
-5 - Digite o comando "git clone" dê um espaço e cole o link do repositório online que havia copiado;
-6 - Digite o comando "pip install mkdocs" para instalar o mkdocs neste diretório e poder visualizar a página por meio do seu navegador;
-7 - Digite o comando "mkdocs serve", copie o link "http://127.0.0.1:8000", abra o teu navegador de internet e cole este link na barra de endereços para poder visualizar a página no seu localhost.
+Sobre
+-----
+
+Documentação para auxiliar as empresas interessadas em integrar com o Login Único GOV.BR 
+[![Status da Documentação](https://readthedocs.org/projects/roteiro-de-integracao-do-login-unico/badge/?version=stable)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/?badge=stable)
+
+
+Tabela de conteúdos
+-------------------
+
+   * [Sobre](#sobre)
+   * [Tabela de conteúdos](tabela-de-conteudos)
+   * [Instalação](#instalação)
+      * [Rodando localmente](#rodando-localmente) 
+   * [Como contribuir](#como-contribuir)
+   * [Tecnologias](#tecnologias)
+
+Instalação 
+----------
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Python](https://python.org/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+### Rodando localmente
+
+```bash
+# Clone este repositório
+$ git clone git@gitcorporativo.serpro:brcidadao-10225/acesso-gov-mercado-privado.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd acesso-gov-mercado-privado
+
+# Instale o mkdocs
+$ pip install mkdocs
+
+# Mande servir a página
+$ mkdocs serve
+
+# O servidor inciará na porta:8000 - acesse <http://localhost:8000>
+$ Copie e cole o endereço <http://127.0.0.1:8000> no seu navegador
+```
+
+Como contribuir
+---------------
+
+[Instale e execute](#instalação) e altere ou adicione páginas na pasta. Depois envie seu Pull Request.
+Você pode abrir issues também.
+
+
+Tecnologias
+-----------
+
+- [Markdown](https://www.markdownguide.org)
+- [Mkdocs](https://www.mkdocs.org)
+
+
+
+

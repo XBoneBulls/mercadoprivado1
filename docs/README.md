@@ -1,11 +1,13 @@
-Roteiro de Integração do Login Único para os órgãos 
+# Acesso Gov - Mercado Privado
+
+Roteiro de Integração do Login Único para o mercado privado
 ===================================================
 
 
 Sobre
 -----
 
-Documentação para auxiliar órgãos interessados em integrar com o Login Único GOV.BR 
+Documentação para auxiliar as empresas interessadas em integrar com o Login Único GOV.BR 
 [![Status da Documentação](https://readthedocs.org/projects/roteiro-de-integracao-do-login-unico/badge/?version=stable)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/?badge=stable)
 
 
@@ -30,25 +32,19 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/servicosgovbr/manual-roteiro-integracao-login-unico
+$ git clone git@gitcorporativo.serpro:brcidadao-10225/acesso-gov-mercado-privado.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd manual-roteiro-integracao-login-unico
+$ cd acesso-gov-mercado-privado
 
-# Crie um virtualenv
-$ python3 -m venv p3
+# Instale o mkdocs
+$ pip install mkdocs
 
-# Faça o source da sua nova virtualenv
-$ source p3/bin/activate 
-
-# Instale as dependências
-$ pip install -r requirements.txt
-
-# Execute a aplicação em modo de desenvolvimento
-$ sphinx-autobuild . _build
+# Mande servir a página
+$ mkdocs serve
 
 # O servidor inciará na porta:8000 - acesse <http://localhost:8000>
-$ xdg-open http://localhost:8000
+$ Copie e cole o endereço <http://127.0.0.1:8000> no seu navegador
 ```
 
 Como contribuir
@@ -61,5 +57,9 @@ Você pode abrir issues também.
 Tecnologias
 -----------
 
-- [reStructuredText](https://docutils.sourceforge.io/rst.html)
-- [Read the docs](https://readthedocs.org)
+- [Markdown](https://www.markdownguide.org)
+- [Mkdocs](https://www.mkdocs.org)
+
+
+
+
