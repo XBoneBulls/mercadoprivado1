@@ -1,4 +1,18 @@
 site_name: ACESSOGOV - MERCADO PRIVADO
+
+nav:
+  - Home: index.md
+  - Legislação e Conceitos:
+      - Introdução: vertopal.com_introducao.md
+      - Contexto: vertopal.com_contexto.md
+      - Catalogo de Confiabilidades: vertopal.com_catalogoconfiabilidades.md
+      - Escopo de atributos: vertopal.com_escopoatributos.md
+  - Informações Técnicas para Integração:
+      - Chave Pgp: vertopal.com_chavepgp.md
+      - Solicitar configuração: vertopal.com_solicitarconfiguracao.md
+      - Exemplo de execução: vertopal.com_execucaoexemplo.md
+      - Iniciar a integração: vertopal.com_iniciarintegracao.md
+      - Exemplo de integração: vertopal.com_exemplointegracao.md
 theme: 
  name: material
  palette:
