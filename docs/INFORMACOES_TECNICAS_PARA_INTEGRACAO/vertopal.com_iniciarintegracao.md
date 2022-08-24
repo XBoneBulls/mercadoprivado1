@@ -41,16 +41,16 @@ A requisição é feita através de um GET para o endereço
 <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/auth> passando as seguintes
 informações:
 
-  **Variavél**                **Descrição**
-  --------------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **response_type**           Especifica para o provedor o tipo de autorização. Neste caso será **code**
-  **client_id**               Chave de acesso, que identifica o serviço consumidor fornecido pelo Login Único para a aplicação cadastrada
-  **scope**                   Especifica os recursos que o serviço consumidor quer obter. Um ou mais escopos inseridos para a aplicação cadastrada. Informação a ser preenchida por padrão: **openid+(email/phone)+profile+govbr_confiabilidades**.
-  **redirect_uri**            URI de retorno cadastrada para a aplicação cliente no formato *URL Encode*. Este parâmetro não pode conter caracteres especiais conforme consta na especificação [auth 2.0 Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
-  **nonce**                   Sequência de caracteres usado para associar uma sessão do serviço consumidor a um *Token* de ID e para atenuar os ataques de repetição. Pode ser um valor aleatório, mas que não seja de fácil dedução. Item obrigatório.
-  **state**                   Valor usado para manter o estado entre a solicitação e o retorno de chamada.
-  **code_challenge**          Senha gerada pelo cliente para proteger o code da requisicao do Authorize. Seguir o padrão BASE64URL-ENCODE(SHA256(ASCII(Valor da Atributo do code_verifier a ser utilizado no /Token))).
-  **code_challenge_method**   Será o método para proteger a senha enviada no parâmetro code_challenge. O padrão será \"S256\".
+  | **Variavél** | **Descrição** |
+  | -------------|-------------- | 
+  | **response_type** | Especifica para o provedor o tipo de autorização. Neste caso será **code** |
+  | **client_id** | Chave de acesso, que identifica o serviço consumidor fornecido pelo Login Único para a aplicação cadastrada |
+  | **scope** | Especifica os recursos que o serviço consumidor quer obter. Um ou mais escopos inseridos para a aplicação cadastrada. Exemplo: **openid+email+phone**. |
+  | **redirect_uri** | URI de retorno cadastrada para a aplicação cliente no formato *URL Encode*. Este parâmetro não pode conter caracteres especiais conforme consta na especificação [auth 2.0 Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2) |
+  | **nonce** | Sequência de caracteres usado para associar uma sessão do serviço consumidor a um *Token* de ID e para atenuar os ataques de repetição. Pode ser um valor aleatório, mas que não seja de fácil dedução. Item obrigatório. |
+  | **state** | Valor usado para manter o estado entre a solicitação e o retorno de chamada. |
+  | **code_challenge** | Senha gerada pelo cliente para proteger o code da requisicao do Authorize. Seguir o padrão BASE64URL-ENCODE(SHA256(ASCII(Valor da Atributo do code_verifier a ser utilizado no /Token))). |
+  | **code_challenge_method** | Será o método para proteger a senha enviada no parâmetro code_challenge. O padrão será \"S256\". |
 
 Exemplo de requisição:
 
@@ -75,10 +75,10 @@ Após a autorização, a requisição é retornada para a URL especificada no
 redirect_uri especificada no passo anterior,
 enviando os parâmetros:
 
-  **Variavél**   **Descrição**
-  -------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **code**       Código de autenticação gerado pelo provedor. Será utilizado para obtenção do Token de Resposta. Possui tempo de expiração e só pode ser utilizado uma única vez.
-  **state**      *State* gerado no [Passo 3](iniciarintegracao.html#passo-3) que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o *code* gerado. O cliente consegue saber se o CODE veio de um state gerado por ele.
+  | **Variavél** | **Descrição** |
+  | ------------ | ------------- |
+  | **code**     | Código de autenticação gerado pelo provedor. Será utilizado para obtenção do Token de Resposta. Possui tempo de expiração e só pode ser utilizado uma única vez. |
+  | **state**    | *State* gerado no [Passo 3](iniciarintegracao.html#passo-3) que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o *code* gerado. O cliente consegue saber se o CODE veio de um state gerado por ele. |
 
 ## Passo 5
 
@@ -98,10 +98,10 @@ as seguintes informações:
 Parâmetros do Header para requisição Post
 <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
 
-  **Variavél**        **Descrição**
-  ------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Content-Type**    Tipo do conteúdo da requisição que está sendo enviada. Nesse caso estamos enviando como um formulário
-  **Authorization**   Informação codificada em *Base64*, no seguinte formato: CLIENT_ID:CLIENT_SECRET (senha de acesso do serviço consumidor)(utilizar [codificador para Base64](https://www.base64decode.org/) [site externo]{.image} para gerar codificação). A palavra Basic deve está antes da informação.
+  | **Variavél** | **Descrição** |
+  | ------------ | ------------- | ------------------------------------------------------
+  | **Content-Type** | Tipo do conteúdo da requisição que está sendo enviada. Nesse caso estamos enviando como um formulário |
+  | **Authorization** | Informação codificada em *Base64*, no seguinte formato: CLIENT_ID:CLIENT_SECRET (senha de acesso do serviço consumidor)(utilizar [codificador para Base64](https://www.base64decode.org/) [site externo]{.image} para gerar codificação). A palavra Basic deve está antes da informação. |
 
 Exemplo de *header*:
 
@@ -114,12 +114,12 @@ ZWM0MzE4ZDYtZjc5Ny00ZDY1LWI0ZjctMzlhMzNiZjRkNTQ0OkFJSDRoaXBfTUJYcVJkWEVQSVJkWkdB
 Parâmetros do Body para requisição Post
 <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
 
-  **Variavél**        **Descrição**
-  ------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **grant_type**      Especifica para o provedor o tipo de autorização. Neste caso será **authorization_code**
-  **code**            Código retornado pela requisição anterior (exemplo: Z85qv1)
-  **redirect_uri**    URI de retorno cadastrada para a aplicação cliente no formato *URL Encode*. Este parâmetro não pode conter caracteres especiais conforme consta na especificação [auth 2.0 Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
-  **code_verifier**   Senha sem criptografia enviada do parâmetro **code_challenge** presente no [Passo 3](iniciarintegracao.html#passo-3).  O codeVerifier deve ser uma string randômica, ter no mínimo 43 caracteres e no máximo 128.
+  | **Variavél** | **Descrição** |
+  | -------------| ------------- | 
+  | **grant_type** | Especifica para o provedor o tipo de autorização. Neste caso será **authorization_code** |
+  | **code** | Código retornado pela requisição anterior (exemplo: Z85qv1) |
+  | **redirect_uri** | URI de retorno cadastrada para a aplicação cliente. Este parâmetro não pode conter caracteres especiais conforme consta na especificação [auth 2.0 Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
+  | **code_verifier** | Senha sem criptografia enviada do parâmetro **code_challenge** presente no [Passo 3](iniciarintegracao.html#passo-3).  O codeVerifier deve ser uma string randômica, ter no mínimo 43 caracteres e no máximo 128. |
 
 Exemplo de *query*
 
@@ -186,15 +186,18 @@ ao extrair do JSON codificado os seguintes parâmetros:
 
 ``` {.JSON}
 {
-    "sub": "(CPF do usuário autenticado)",
-    "aud": "Client ID da aplicação onde o usuário se autenticou",
+    "sub": "(ID do usuário no Autenticador)",
+    "azp": "Client ID da aplicação onde o usuário se autenticou",
     "scope": ["(Escopos autorizados pelo provedor de autenticação.)"],
     "amr": ["(Listagem dos fatores de autenticação do usuário. Pode ser “app” se logou por QR-CODE do aplicativo gov.br, “passwd” se o mesmo logou fornecendo a senha, “x509” se o mesmo utilizou certificado digital ou certificado em nuvem, ou “bank” para indicar utilização de conta bancária para autenticar. Esse último seguirá com número de identificação do banco, conforme código de compensação do Bacen presente ao final da explicação.)"],
     "iss": "(URL do provedor de autenticação que emitiu o token.)",
     "exp": "(Data/hora de expiração do token)",
     "iat": "(Data/hora em que o token foi emitido.)",
     "jti": "(Identificador único do token, reconhecido internamente pelo provedor de autenticação.)",
-    "cnpj": "CNPJ vinculado ao usuário autenticado. Atributo será preenchido quando autenticação ocorrer por certificado digital de pessoal jurídica."
+    "typ": "Bearer",
+    "sid": "(identificador único utilizado na sessão)",
+    "auth_time": "(indica quando a autenticação ocorreu)"
+   
 }
 ```
 
@@ -214,7 +217,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
 
 ``` {.JSON}
 {
-    "sub": "(CPF do usuário autenticado.)",
+    "sub": "(ID do usuário no Autenticador)",
     "amr": ["(Listagem dos fatores de autenticação do usuário. Pode ser “app” se logou por QR-CODE do aplicativo gov.br, “passwd” se o mesmo logou fornecendo a senha, “x509” se o mesmo utilizou certificado digital ou certificado em nuvem, ou “bank” para indicar utilização de conta bancária para autenticar. Esse último seguirá com número de identificação do banco, conforme código de compensação do Bacen presente ao final da explicação.)"],
     "name": "(Nome cadastrado no Gov.br do usuário autenticado.)",
     "phone_number_verified": "(Confirma se o telefone foi validado no cadastro do Gov.br. Poderá ter o valor "true" ou "false")",
@@ -490,10 +493,10 @@ Parâmetros da Query para requisição GET
 Parâmetros da Query para requisição GET
 <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout>
 
-  **Variavél**                   **Descrição**
-  ------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **post_logout_redirect_uri**   URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo **URL de Log Out** presente no [Plano de Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).
-  **id_token_hint**   Cópia do ID Token gerado anteriormente em formato JWT
+  | **Variavél** | **Descrição** |
+  |--------------| ------------- |
+  | **post_logout_redirect_uri** | URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo **URL de Log Out** presente no [Plano de Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc). |
+  | **id_token_hint**  | Cópia do ID Token gerado anteriormente em formato JWT |
 
 Exemplo 1 de **execução** no front end em javascript
 
