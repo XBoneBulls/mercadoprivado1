@@ -99,7 +99,7 @@ Parâmetros do Header para requisição Post
 <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
 
   | **Variavél** | **Descrição** |
-  | ------------ | ------------- | ------------------------------------------------------
+  | ------------ | ------------- |
   | **Content-Type** | Tipo do conteúdo da requisição que está sendo enviada. Nesse caso estamos enviando como um formulário |
   | **Authorization** | Informação codificada em *Base64*, no seguinte formato: CLIENT_ID:CLIENT_SECRET (senha de acesso do serviço consumidor)(utilizar [codificador para Base64](https://www.base64decode.org/) [site externo]{.image} para gerar codificação). A palavra Basic deve está antes da informação. |
 
