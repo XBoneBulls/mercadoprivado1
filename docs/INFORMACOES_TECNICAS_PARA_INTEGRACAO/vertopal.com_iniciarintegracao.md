@@ -38,7 +38,7 @@ para a página de login.
 ## Passo 3
 
 A requisição é feita através de um GET para o endereço
-<https://sso.staging.acesso.gov.br/authorize> passando as seguintes
+<https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/auth> passando as seguintes
 informações:
 
   **Variavél**                **Descrição**
@@ -55,7 +55,7 @@ informações:
 Exemplo de requisição:
 
 ``` {.console}
-https://sso.staging.acesso.gov.br/authorize?response_type=code&client_id=ec4318d6-f797-4d65-b4f7-39a33bf4d544&scope=openid+(email/phone)+profile&redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&nonce=3ed8657fd74c&state=358578ce6728b%code_challenge=K9LToxk012GYrMAwyspMMZZUdP5fpI81_vedD9dO4bI&code_challenge_method=S256
+https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/auth?response_type=code&client_id=ec4318d6-f797-4d65-b4f7-39a33bf4d544&scope=openid+email+phone+profile&redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&nonce=3ed8657fd74c&state=358578ce6728b%code_challenge=K9LToxk012GYrMAwyspMMZZUdP5fpI81_vedD9dO4bI&code_challenge_method=S256
 ```
 
 **Observações para Passo 3:**
@@ -67,17 +67,18 @@ https://sso.staging.acesso.gov.br/authorize?response_type=code&client_id=ec4318d
     obrigatoriamente ser usado evitando que a resposta do \"authorize\"
     possa ser utilizada por um terceiro agente. Detalhes na [RFC
     PKCE](https://datatracker.ietf.org/doc/html/rfc7636)
+-   Parâmetro **nonce** é obrigatório e deve ser formado por uma String aleatória. O mesmo **nonce**  estará presente no **ID Token**.
 
 ## Passo 4
 
 Após a autorização, a requisição é retornada para a URL especificada no
-redirect_uri do serviço <https://sso.staging.acesso.gov.br/authorize>,
+redirect_uri especificada no passo anterior,
 enviando os parâmetros:
 
   **Variavél**   **Descrição**
   -------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **code**       Código de autenticação gerado pelo provedor. Será utilizado para obtenção do Token de Resposta. Possui tempo de expiração e só pode ser utilizado uma única vez.
-  **state**      *State* passado anteriormente do <https://sso.staging.acesso.gov.br/authorize> que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o *code* gerado. O cliente consegue saber se o CODE veio de um state gerado por ele.
+  **state**      *State* gerado no [Passo 3](iniciarintegracao.html#passo-3) que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o *code* gerado. O cliente consegue saber se o CODE veio de um state gerado por ele.
 
 ## Passo 5
 
@@ -91,11 +92,11 @@ Connect](https://openid.net/specs/openid-connect-core-1_0.html#TokenResponse)
 ## Passo 6
 
 Para obter o *ticket de acesso*, o consumidor deve fazer uma requisição
-POST para o endereço <https://sso.staging.acesso.gov.br/token> passando
+POST para o endereço <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token> passando
 as seguintes informações:
 
 Parâmetros do Header para requisição Post
-<https://sso.staging.acesso.gov.br/token>
+<https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
 
   **Variavél**        **Descrição**
   ------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -111,19 +112,19 @@ ZWM0MzE4ZDYtZjc5Ny00ZDY1LWI0ZjctMzlhMzNiZjRkNTQ0OkFJSDRoaXBfTUJYcVJkWEVQSVJkWkdB
 ```
 
 Parâmetros do Body para requisição Post
-<https://sso.staging.acesso.gov.br/token>
+<https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
 
   **Variavél**        **Descrição**
   ------------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **grant_type**      Especifica para o provedor o tipo de autorização. Neste caso será **authorization_code**
   **code**            Código retornado pela requisição anterior (exemplo: Z85qv1)
   **redirect_uri**    URI de retorno cadastrada para a aplicação cliente no formato *URL Encode*. Este parâmetro não pode conter caracteres especiais conforme consta na especificação [auth 2.0 Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
-  **code_verifier**   Senha sem criptografia enviada do parâmetro **code_challenge** presente no [Passo 3](iniciarintegracao.html#passo-3)
+  **code_verifier**   Senha sem criptografia enviada do parâmetro **code_challenge** presente no [Passo 3](iniciarintegracao.html#passo-3).  O codeVerifier deve ser uma string randômica, ter no mínimo 43 caracteres e no máximo 128.
 
 Exemplo de *query*
 
 ``` {.console}
-curl -X POST -d 'grant_type=authorization_code&code=Z85qv1&redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php'&code_verifier='LoginUnicoAplicacaoCodeVerifier' https://sso.staging.acesso.gov.br/token    
+curl -X POST -d 'grant_type=authorization_code&code=Z85qv1&redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php'&code_verifier='saoksdokaosdkasodkasodosdkaodksaodasodsakdaoskdsaok2212121$$2212ybhshsadju' https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token    
 ```
 
 O serviço retornará, em caso de sucesso, no formato JSON, as informações
@@ -134,7 +135,10 @@ conforme exemplo:
     "access_token": "(Token de acesso a recursos protegidos do autenticador, bem como serviços do Login Único.)", 
     "id_token": "(Token de autenticação com informações básicas do usuário.)", 
     "token_type": "(O tipo do token gerado. Padrão: Bearer)", 
-    "expires_in": "(Tempo de vida do token em segundos.)" 
+    "expires_in": "(Tempo de vida do token em segundos.)" ,
+    "refresh_token": "(Token que atualiza os tokens de acesso, conforme eles expiram)",
+    "refresh_expires_in": "(Tempo de vida do refresh token em segundos.)",
+    "not-before-policy": "(data em formato timestamp. Qualquer token com data de publicação anterior a esta data é invalidado.)"
 } 
 ```
 
@@ -171,9 +175,7 @@ método de acesso e cadastro básico do usuário, há necessidade da
 aplicação consumidora validar se as informações foram geradas pelos
 serviços do Login Único. Esta validação ocorrerá por meio da consulta da
 chave pública disponível no serviço
-<https://sso.staging.acesso.gov.br/jwk>. Para isso, verificar o método
-**processToClaims** dos [Exemplos de
-Integração](exemplointegracao.html).
+<https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/certs>. 
 
 ## Passo 9
 
@@ -214,19 +216,18 @@ ao extrair do JSON codificado os seguintes parâmetros:
 {
     "sub": "(CPF do usuário autenticado.)",
     "amr": ["(Listagem dos fatores de autenticação do usuário. Pode ser “app” se logou por QR-CODE do aplicativo gov.br, “passwd” se o mesmo logou fornecendo a senha, “x509” se o mesmo utilizou certificado digital ou certificado em nuvem, ou “bank” para indicar utilização de conta bancária para autenticar. Esse último seguirá com número de identificação do banco, conforme código de compensação do Bacen presente ao final da explicação.)"],
-    "picture": "(URL de acesso à foto do usuário cadastrada no Gov.br. A mesma é protegida e pode ser acessada passando o access token recebido.)",
     "name": "(Nome cadastrado no Gov.br do usuário autenticado.)",
     "phone_number_verified": "(Confirma se o telefone foi validado no cadastro do Gov.br. Poderá ter o valor "true" ou "false")",
     "phone_number": "(Número de telefone cadastrado no Gov.br do usuário autenticado. Caso o atributo phone_number_verified do ID_TOKEN tiver o valor false, o atributo phone_number não virá no ID_TOKEN)",
     "email_verified": "(Confirma se o email foi validado no cadastro do Gov.br. Poderá ter o valor "true" ou "false")",
     "email": "(Endereço de e-mail cadastrado no Gov.br do usuário autenticado. Caso o atributo email_verified do ID_TOKEN tiver o valor false, o atributo email não virá no ID_TOKEN)",
-    "cnpj": "(CNPJ vinculado ao usuário autenticado. Atributo será preenchido quando autenticação ocorrer por certificado digital de pessoal jurídica.)"
+    "cnpj???revisar": "(CNPJ vinculado ao usuário autenticado. Atributo será preenchido quando autenticação ocorrer por certificado digital de pessoal jurídica.)"
 }
 ```
 
 **Observações para ID_TOKEN:**
 
--   Os paramêtros email,phone_number,picture não são obrigatórios. Ambos
+-   Os paramêtros email e phone_number não são obrigatórios. Ambos
     podem estar preenchidos ou não.
 -   Caso um novo método de autenticação seja adicionado, será listado no
     atributo *AMR*. As integrações devem contemplar futuras adições.
@@ -238,20 +239,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     bancos integrados ao Login Único:[Documento verificar Código de
     Compensação dos Bancos]().
 
-## Passo 10
-
-Para solicitação do conteúdo da foto salva no cadastro do cidadão,
-deverá acessar, pelo método GET, o serviço
-<https://sso.staging.acesso.gov.br/userinfo/picture> e acrescentar o
-atributo Authorization ao header do HTTP da requisição:
-
-  **Variavél**        **Descrição**
-  ------------------- -------------------------------------------------------------------------------------------------------
-  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://sso.staging.acesso.gov.br/token>
-
-O serviço retornará, em caso de sucesso a informação em formato Base64
-
-## Passo 11
+## Passo 10???
 
 Para verificar quais níveis da conta do cidadão está localizada, deverá
 acessar, pelo método GET, o serviço
@@ -262,7 +250,7 @@ Parâmetros para requisição GET
 
   **Variavél**        **Descrição**
   ------------------- -------------------------------------------------------------------------------------------------------
-  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://sso.staging.acesso.gov.br/token>
+  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
   **cpf**             CPF do cidadão (sem ponto, barra etc).
 
 A resposta em caso de sucesso retorna sempre um **array** de objetos
@@ -281,7 +269,7 @@ Verificar quais níveis estão disponíveis, acesse [Resultado Esperado do
 Acesso ao Serviço de Confiabilidade Cadastral
 (Níveis)](#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis)
 
-## Passo 12
+## Passo 12 ???
 
 Para verificar quais selos de confiabilidade a conta do cidadão possui,
 deverá acessar, pelo método GET, o serviço
@@ -292,7 +280,7 @@ Parâmetros para requisição GET
 
   **Variavél**        **Descrição**
   ------------------- -------------------------------------------------------------------------------------------------------
-  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://sso.staging.acesso.gov.br/token>
+  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
   **cpf**             CPF do cidadão (sem ponto, barra etc).
 
 A resposta em caso de sucesso retorna sempre um **array** de objetos
@@ -495,23 +483,24 @@ Parâmetros da Query para requisição GET
 1.  **Implementação obrigatória** a fim de encerrar a sessão do usuário
     com o Login Único.
 2.  Com usuário autenticado, deverá acessar, por meio do método GET ou
-    POST, a URL: <https://sso.staging.acesso.gov.br/logout>. O acesso ao
+    POST, a URL: <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout>. O acesso ao
     Log Out deverá ser pelo **Front End** da aplicação a ser integrada
     com Login Único.
 
 Parâmetros da Query para requisição GET
-<https://sso.staging.acesso.gov.br/logout>
+<https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout>
 
   **Variavél**                   **Descrição**
   ------------------------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **post_logout_redirect_uri**   URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo **URL de Log Out** presente no [Plano de Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).
+  **id_token_hint**   Cópia do ID Token gerado anteriormente em formato JWT
 
 Exemplo 1 de **execução** no front end em javascript
 
 ``` {.javascript}
 var form = document.createElement("form");      
 form.setAttribute("method", "post");
-form.setAttribute("action", "https://sso.staging.acesso.gov.br/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html");
+form.setAttribute("action", "https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...");
 document.body.appendChild(form);  
 form.submit();
 ```
@@ -519,10 +508,10 @@ form.submit();
 Exemplo 2 de **execução** no front end em javascript
 
 ``` {.javascript}
-window.location.href='https://sso.staging.acesso.gov.br/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html';   
+window.location.href='https://https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...';   
 ```
 
-# Acesso ao Serviço de Cadastro de Pessoas Jurídicas
+# Acesso ao Serviço de Cadastro de Pessoas Jurídicas???
 
 O Login Único disponibiliza dois serviços para acesso a informações de
 Pessoa Jurídica. O primeiro apresenta todos os CNPJs cadastrados para um
@@ -599,7 +588,7 @@ Exemplo de requisição
 }
 ```
 
-# Acesso ao Serviço de Recuperação do Tipo de Certificado
+# Acesso ao Serviço de Recuperação do Tipo de Certificado???
 
 1.  Na requisição de autenticação, adicionar o escopo
     "govbr_recupera_certificadox509", conforme exemplo:
@@ -638,15 +627,4 @@ Exemplo de requisição
 ]
 ```
 
-# Resultados Esperados ou Erros do Acesso ao Serviços do Login Único
 
-Os acessos aos serviços do Login Único ocorrem por meio de chamadas de
-URLs e as respostas são códigos presentes conforme padrão do protocolo
-http por meio do retorno JSON, conforme exemplo:
-
-``` {.JSON}
-{
-  "error": "(Código HTTP do erro)",
-  "erro_description": "(Descrição detalhada do erro ocorrido. )"
-}
-```
