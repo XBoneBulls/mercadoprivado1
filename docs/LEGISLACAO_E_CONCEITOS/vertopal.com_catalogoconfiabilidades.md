@@ -5,7 +5,7 @@ title: Níveis de Autenticação, Selos e Catálogo de Confiabilidades
 # Níveis de Autenticação
 
 Os Níveis de Autenticação tem como principal característica ser um
-recurso de segurança da informação da identidade, que permitem
+recurso de segurança da informação da identidade, que permite
 flexibilidade para realização do acesso.
 
 # Selos de Confiabilidade
@@ -13,12 +13,12 @@ flexibilidade para realização do acesso.
 Os Selos de Confiabilidade estão presentes em cada nível de autenticação
 e consistem em orientar para qualificação das contas com a obtenção dos
 atributos autoritativos do cidadão a partir das bases oficias de
-governo, por meio das quais permitirão a utilização da credencial de
+governo, por meio das quais permitir-se-á a utilização da credencial de
 acesso em sistemas internos dos clientes e serviços providos diretamente
 ao cidadão.
 
-Uso possível para os nívels e os selos é o aumento da confiança
-cadastral pelos serviços para aplicar controle de acesso às
+Um uso possível dos níveis e dos selos consiste em aumentar a confiança
+cadastral dos serviços ao aplicar controle de acesso às
 funcionalidades mais críticas.
 
 # Catálogo de Confiabilidades
@@ -45,11 +45,11 @@ O Catálogo trabalha com as estruturas:
     Físicas (Ministério da Economia / Receita Federal). [Orientações
     para aquisição do Selo Cadastro Básico com Validação de Dados
     Pessoais]().
--   **Selo Cadastro Básico com Validação de Dados Previdênciarios**:
+-   **Selo Cadastro Básico com Validação de Dados Previdenciários**:
     Validação do cadastro do cidadão por meio da base de Casdatro
     Nacional de Informações Sociais (CNIS / INSS). [Orientações para
     aquisição do Selo Cadastro Básico com Validação de Dados
-    Previdênciarios]().
+    Previdenciários]().
 -   **Selo Balcão Presencial (INSS)**: Validação do cadastro do cidadão
     por meio do Balcão presencial localizado nas agências do INSS.
     [Orientações para aquisição do Selo Balcão Presencial (INSS)]().

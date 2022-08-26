@@ -4,7 +4,7 @@ title: Contexto
 
 O [Decreto n° 8.936, de 19 de dezembro de
 2016](http://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2016/Decreto/D8936.htm)
-[site externo]{.image} permitiu o início do projeto da plataforma de
+permitiu o início do projeto da plataforma de
 cidadania digital, que contempla diversas diretrizes para a prestação de
 serviços públicos digitais, das quais fazem parte a convergência
 autoritativa e a federação dos processos de autenticação dos serviços
@@ -16,7 +16,7 @@ Dentro deste contexto, podemos destacar as diversas dificuldades com
 múltiplas contas de acesso sob responsabilidade do cidadão e variados
 bancos de dados cadastrais, tais como a duplicidade e inconsistência de
 informações, falta de integração, dados dispersos e diversas formas de
-autenticação. Problemas enfrentados por cidadãos ao tentar consumir um
+autenticação. Problemas enfrentados por cidadãos ao tentarem consumir um
 serviço público digital. Analisando essas dificuldades, o Ministério da
 Economia (ME), em parceria com o Serviço Federal de Processamento de
 Dados (Serpro), disponibilizou a plataforma central de autenticação

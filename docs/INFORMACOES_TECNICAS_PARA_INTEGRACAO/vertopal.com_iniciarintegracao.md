@@ -242,7 +242,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     bancos integrados ao Login Único:[Documento verificar Código de
     Compensação dos Bancos]().
 
-## Passo 10???
+## Passo 10
 
 Para verificar quais níveis da conta do cidadão está localizada, deverá
 acessar, pelo método GET, o serviço
@@ -272,7 +272,7 @@ Verificar quais níveis estão disponíveis, acesse [Resultado Esperado do
 Acesso ao Serviço de Confiabilidade Cadastral
 (Níveis)](#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis)
 
-## Passo 12 ???
+## Passo 11
 
 Para verificar quais selos de confiabilidade a conta do cidadão possui,
 deverá acessar, pelo método GET, o serviço
@@ -514,7 +514,7 @@ Exemplo 2 de **execução** no front end em javascript
 window.location.href='https://https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...';   
 ```
 
-# Acesso ao Serviço de Cadastro de Pessoas Jurídicas???
+# Acesso ao Serviço de Cadastro de Pessoas Jurídicas
 
 O Login Único disponibiliza dois serviços para acesso a informações de
 Pessoa Jurídica. O primeiro apresenta todos os CNPJs cadastrados para um
@@ -591,7 +591,7 @@ Exemplo de requisição
 }
 ```
 
-# Acesso ao Serviço de Recuperação do Tipo de Certificado???
+# Acesso ao Serviço de Recuperação do Tipo de Certificado
 
 1.  Na requisição de autenticação, adicionar o escopo
     "govbr_recupera_certificadox509", conforme exemplo:
