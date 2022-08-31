@@ -61,9 +61,17 @@ orientações:
 
   **Client_id**                  **Identificação do Client_id que deseja alterar**
   ------------------------------ ---------------------------------------------------
-  **URL de Retorno**             URL Retorno deseja adicionar
-  **URL Lançador de Serviços**   URL Lançador de Serviços deseja alterar
-  **URL de Logout**              URL de Logout deseja adicionar
+  **URL de Retorno**    
+
+  - URL Retorno deseja adicionar
+
+  **URL Lançador de Serviços**   
+
+  - URL Lançador de Serviços deseja alterar
+
+  **URL de Logout**    
+            
+  - URL de Logout deseja adicionar
 
 **O endereço de envio encontra-se no** [Plano de
 Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).

@@ -242,7 +242,11 @@ ao extrair do JSON codificado os seguintes parâmetros:
     bancos integrados ao Login Único:[Documento verificar Código de
     Compensação dos Bancos]().
 
+<<<<<<< HEAD
 ## Passo 9
+=======
+## Passo 10
+>>>>>>> de2d9e15c44827947fe8b0c72d42adbefaabbd3b
 
 Para verificar quais níveis da conta do cidadão está localizada, deverá
 acessar, pelo método GET, o serviço
@@ -272,6 +276,180 @@ Verificar quais níveis estão disponíveis, acesse [Resultado Esperado do
 Acesso ao Serviço de Confiabilidade Cadastral
 (Níveis)](#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis)
 
+<<<<<<< HEAD
+=======
+## Passo 11
+
+Para verificar quais selos de confiabilidade a conta do cidadão possui,
+deverá acessar, pelo método GET, o serviço
+<https://api.staging.acesso.gov.br/confiabilidades/v3/contas/>**cpf**/confiabilidades?response-type=ids
+
+Parâmetros para requisição GET
+<https://api.staging.acesso.gov.br/confiabilidades/v3/contas/>**cpf**/confiabilidades?response-type=ids
+
+  **Variavél**        **Descrição**
+  ------------------- -------------------------------------------------------------------------------------------------------
+  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token>
+  **cpf**             CPF do cidadão (sem ponto, barra etc).
+
+A resposta em caso de sucesso retorna sempre um **array** de objetos
+JSON no seguinte formato:
+
+``` {.JSON}
+[
+    {
+    "id": "(Identificação para reconhecer a confiabilidade)",
+    "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    }
+]
+```
+
+Verificar quais selos de confiabilidade estão disponíveis, acesse
+[Resultado Esperado do Acesso ao Serviço de Confiabilidade Cadastral
+(Selos)](iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos)
+
+# Resultado Esperado do Acesso ao Serviço de Confiabilidade Cadastral (Níveis)
+
+As categorias existentes no Login Único são:
+
+``` {.JSON}
+[
+    {
+        "id": "1 (Bronze)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da categoria na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "2 (Prata)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da categoria na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "3 (Ouro)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da categoria na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    }
+]
+```
+
+# Resultado Esperado do Acesso ao Serviço de Confiabilidade Cadastral (Selos)
+
+Os selos existentes no Login Único são:
+
+``` {.JSON}
+[
+    {
+        "id": "101 (kba_previdencia)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "201 (cadastro_basico)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "301 (servidor_publico)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+    {
+        "id": "401 (biovalid_facial)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "501 (balcao_sat_previdencia)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "502 (balcao_denatran)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "503 (balcao_correios)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "504 (balcao_cadastro_presencial_govbr)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "601 (balcao_nai_previdencia)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "609 (agi_bank_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "602 (bb_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "603 (banrisul_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "604 (bradesco_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "605 (caixa_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "606 (brb_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+
+    {
+        "id": "605 (caixa_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "610 (itau_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+        {
+        "id": "607 (sicoob_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "624 (sicred_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "608 (santander_internet_banking)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "701 (tse_facial)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    },
+
+    {
+        "id": "801 (certificado_digital)",
+        "dataAtualizacao": "(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    }       
+]
+```
+
+>>>>>>> de2d9e15c44827947fe8b0c72d42adbefaabbd3b
 # Acesso ao serviço de Catálogo de Confiabilidades (Selos)
 
 1.  Com usuário autenticado, deverá acessar, por meio do método GET ou
@@ -340,5 +518,128 @@ form.submit();
 Exemplo 2 de **execução** no front end em javascript
 
 ``` {.javascript}
+<<<<<<< HEAD
 window.location.href='https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...';   
 ```
+=======
+window.location.href='https://https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...';   
+```
+
+# Acesso ao Serviço de Cadastro de Pessoas Jurídicas
+
+O Login Único disponibiliza dois serviços para acesso a informações de
+Pessoa Jurídica. O primeiro apresenta todos os CNPJs cadastrados para um
+determinado usuário. O segundo, utiliza desse CNPJ para extrair
+informações cadastradas no Login Único para aquela pessoa e empresa.
+
+Para acessar o serviço que disponibiliza os CNPJs vinculados a um
+determinado usuário, é necessário o seguinte:
+
+1.  Na requisição de autenticação, adicionar o escopo "govbr_empresa",
+    conforme exemplo:
+
+Exemplo de requisição
+
+``` {.console}
+https://sso.staging.acesso.gov.br/authorize?response_type=code&client_id=minha-aplicacao&scope=openid+(email/phone)+profile+govbr_empresa&redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&nonce=3ed8657fd74c&state=358578ce6728b
+```
+
+2.  Com o usuário autenticado, a aplicação deverá realizar uma
+    requisição por meio do método GET a URL
+    <https://api.staging.acesso.gov.br/empresas/v2/empresas?filtrar-por-participante=>**cpf**
+    enviando as seguintes informações:
+
+Parâmetros para requisição GET
+<https://api.staging.acesso.gov.br/empresas/v2/empresas?filtrar-por-participante=cpf>
+
+  **Variavél**        **Descrição**
+  ------------------- -------------------------------------------------------------------------------------------------------
+  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://sso.staging.acesso.gov.br/token>
+  **cpf**             CPF do cidadão (sem ponto, barra etc).
+
+3.  O resultado em formato JSON é a lista de CNPJs do CPF autenticado,
+    conforme o exemplo abaixo:
+
+Exemplo de requisição
+
+``` {.JSON}
+[
+    {
+    "cnpj": "(Número de CNPJ da empresa vinculada)",
+    "razaoSocial": "(Razão Social (Nome da empresa) cadastrada na Receita Federal)",
+    "dataCriacao": "(Mostra a data e hora da vinculação do CNPJ a conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)"
+    }
+]
+```
+
+4.  Com o usuário autenticado, a aplicação cliente deverá acessar, por
+    meio do método GET, a URL
+    <https://api.staging.acesso.gov.br/empresas/v2/empresas/>**cnpj**/participantes/**cpf**
+    enviando as seguintes informações:
+
+Parâmetros para requisição GET
+<https://api.staging.acesso.gov.br/empresas/v2/empresas/>**cnpj**/participantes/**cpf**
+
+  **Variavél**        **Descrição**
+  ------------------- -------------------------------------------------------------------------------------------------------
+  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://sso.staging.acesso.gov.br/token>
+  **cpf**             CPF do cidadão (sem ponto, barra etc).
+  **cnpj**            CNPJ da empresa (sem ponto, barra etc).
+
+5.  O resultado em formato JSON é o detalhamento do CNPJ do CPF
+    autenticado, conforme o exemplo abaixo:
+
+Exemplo de requisição
+
+``` {.JSON}
+{
+"cpf": "(Número do CPF que pode atuar com empresa)",
+"atuacao": "(Papel do CPF na empresa na Receita Federal. O conteúdo será SOCIO, CONTADOR, REPRESENTANTE_LEGAL ou NAO_ATUANTE. O NAO_ATUANTE representa CPF possui certificado digital de pessoa jurídica, porém não possui um papel na empresa na base da Receita Federal. Se CPF for colaborador, atributo atuacao não aparecerá)",
+"cadastrador": "(Identifica se o CPF pode realizar cadastro de colaboradores para CNPJ. O conteúdo false determinar que o CPF é um colaborador da empresa. O conteúdo true determina CPF é representante da empresa com certificado digital de pessoal jurídica)",
+"cpfCadastrador": "(CPF responsável por realizar cadastro do Colaborador. Se CPF apresentar atributo cadastrador com conteúdo true, o atributo cpfCadastrador não aparecerá)",
+"dataCriacao": "(Mostra a data e hora da vinculação do CPF ao CNPJ. A mascará será YYYY-MM-DD HH:MM:SS)",
+"dataExpiracao": "(Mostra a data e hora que o CPF poderá atuar com CNPJ. A mascará será YYYY-MM-DD HH:MM:SS)"
+}
+```
+
+# Acesso ao Serviço de Recuperação do Tipo de Certificado
+
+1.  Na requisição de autenticação, adicionar o escopo
+    "govbr_recupera_certificadox509", conforme exemplo:
+
+Exemplo de requisição
+
+``` {.console}
+https://sso.staging.acesso.gov.br/authorize?response_type=code&client_id=minha-aplicacao&scope=openid+email+phone+profile+govbr_recupera_certificadox509&redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&nonce=3ed8657fd74c&state=358578ce6728b
+```
+
+2.  Com o usuário autenticado, a aplicação deverá realizar uma
+    requisição por meio do método GET a URL
+    <https://sso.staging.acesso.gov.br/api/x509/info> enviando as
+    seguintes informações:
+
+Parâmetros para requisição GET
+<https://sso.staging.acesso.gov.br/api/x509/info>
+
+  **Variavél**        **Descrição**
+  ------------------- -------------------------------------------------------------------------------------------------------
+  **Authorization**   palavra **Bearer** e o *ACCESS_TOKEN* da requisição POST do <https://sso.staging.acesso.gov.br/token>
+
+3.  O resultado em formato JSON é tipo de certificado da autenticação,
+    conforme o exemplo abaixo:
+
+Exemplo de requisição
+
+``` {.JSON}
+[
+    {
+      "provider":"(Indicará qual o provedor disponibilizará o certificado. Aparecerá para certificado em nuvem)",
+      "amr":["(Lista de forma de certificados autenticados. Padrão é x509)"],
+      "certificate":"(Demonstra o nome do cerfificado da autenticação)",
+      "type":"(Informa qual tipo de certificado utilizado para autenticação. O contéudo será <device> para certificados A1 e A3 e <cloud> para indicar certificado em núvem)"
+    }
+]
+```
+
+
+>>>>>>> de2d9e15c44827947fe8b0c72d42adbefaabbd3b
