@@ -10,9 +10,10 @@ nav:
   - Informações Técnicas para Integração:
       - Chave Pgp: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_chavepgp.md
       - Solicitar configuração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_solicitarconfiguracao.md
-      - Exemplo de execução: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_execucaoexemplo.md
-      - Iniciar a integração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_iniciarintegracao.md
-      - Exemplo de integração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_exemplointegracao.md
+      - Configurar a integração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_iniciarintegracao.md
+      - Exemplo de implementação: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_exemplointegracao.md
+      - Execução do exemplo de implementação: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_execucaoexemplo.md
+
 theme: 
  name: material
  palette:

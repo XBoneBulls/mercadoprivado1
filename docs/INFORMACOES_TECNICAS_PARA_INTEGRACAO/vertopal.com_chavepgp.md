@@ -18,31 +18,29 @@ Sigam os passos para criação:
 2.  Siga os passos até finalizar instalação;
 3.  Execute o programa Kleopatra.
 
-[]{.image}
+
 
 4.  Selecione item do Menu **Arquivo / Novo Par de chaves**;
 
-[]{.image}
+
 
 5.  Selecione opção **Criar um par de chaves OpenPGP pessoal**;
 
-[]{.image}
+
 
 6.  Informe o **Nome** e o **Email**, marque a opção **Proteger a chave
     com senha** e clique no botão **Criar**. O nome e email deverão ser
     algum dos presentes no Item **Responsáveis pela Integração** no
     Plano de Integração
 
-[]{.image}
 
 7.  Concluída a criação clique no botão **Terminar**;
 
-[]{.image}
+
 
 8.  Selecione a chave criada, clique item do Menu **Arquivo / Exportar**
     para salvar chave pública;
 
-[]{.image}
 
 9.  Enviar chave pública junto com Plano de Integração.
 
@@ -59,18 +57,14 @@ Sigam os passos para criação:
 2.  Siga os passos até finalizar instalação;
 3.  Execute o programa Kleopatra.
 
-[]{.image}
 
 4.  Selecione item do Menu **Arquivo / Descriptografar/Verificar**;
 
-[]{.image}
 
 5.  Selecione o arquivo com a credencial criptografada, digite a senha
     da geração do par de chaves, clique no botão **OK**;
 
-[]{.image}
 
 6.  Selecione a pasta deseja salvar o aquivo descriptografado e clique
     no botão **Save all**;
 
-[]{.image}

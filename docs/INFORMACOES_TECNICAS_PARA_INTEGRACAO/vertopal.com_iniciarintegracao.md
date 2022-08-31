@@ -211,7 +211,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     segundo fator com código encaminhado pelo aplicativo gov.br).
 -   Documento para verificação do Código de Compensação dos possíveis
     bancos integrados ao Login Único:[Documento verificar Código de
-    Compensação dos Bancos]().
+    Compensação dos Bancos](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/TabelaBacen.pdf).
 
 **JSON do ID_TOKEN**
 
@@ -240,7 +240,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     segundo fator com código encaminhado pelo aplicativo gov.br).
 -   Documento para verificação do Código de Compensação dos possíveis
     bancos integrados ao Login Único:[Documento verificar Código de
-    Compensação dos Bancos]().
+    Compensação dos Bancos](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/TabelaBacen.pdf).
 
 ## Passo 10
 
@@ -270,7 +270,7 @@ JSON no seguinte formato:
 
 Verificar quais níveis estão disponíveis, acesse [Resultado Esperado do
 Acesso ao Serviço de Confiabilidade Cadastral
-(Níveis)](#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis)
+(Níveis)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis)
 
 # Acesso ao serviço de Catálogo de Confiabilidades (Selos)
 
@@ -291,18 +291,18 @@ Parâmetros da Query para requisição GET
     solicitadas. Após atendido as configurações, o Login Único devolverá
     o fluxo para aplicação por meio da URL de Lançador de Serviços,
     conforme [Plano de
-    Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).
+    Integração](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&wdOrigin=BROWSELINK).
 
 **Observações sobre as variáveis do serviço de catálogo**
 
 1.  Conteúdo para variável *niveis* : Será a informação do atributo id
     presente em cada nível no [Resultado Esperado do Acesso ao Serviço
     de Confiabilidade Cadastral
-    (Níveis)](#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis)
+    (Níveis)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis)
 2.  Contéudo para variável *confiabilidades*: Será a informação do
     atributo id presentes em cada confiabilidade no [Resultado Esperado
     do Acesso ao Serviço de Confiabilidade Cadastral
-    (Selos)](iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos)
+    (Selos)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos)
 3.  Tratamento do conteúdo para cada variável:
 
 -   Todos são obrigatórios, deve-se separá-los por vírgula. **Exemplo

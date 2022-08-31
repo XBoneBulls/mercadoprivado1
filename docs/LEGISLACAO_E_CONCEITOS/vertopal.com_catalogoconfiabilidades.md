@@ -44,73 +44,73 @@ O Catálogo trabalha com as estruturas:
     do cadastro do cidadão por meio da base de Cadastro de Pessoas
     Físicas (Ministério da Economia / Receita Federal). [Orientações
     para aquisição do Selo Cadastro Básico com Validação de Dados
-    Pessoais]().
+    Pessoais](https://github.com/servicosgovbr/manual-script-chatbot-login-unico/blob/master/_perguntasdafaq/comoadquirirselocadastrobasicovalidacaodadospessoais.rst).
 -   **Selo Cadastro Básico com Validação de Dados Previdenciários**:
     Validação do cadastro do cidadão por meio da base de Casdatro
     Nacional de Informações Sociais (CNIS / INSS). [Orientações para
     aquisição do Selo Cadastro Básico com Validação de Dados
-    Previdenciários]().
+    Previdenciários](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirirselocadastrobasicovalidacaodadosprevidenciarios.html).
 -   **Selo Balcão Presencial (INSS)**: Validação do cadastro do cidadão
     por meio do Balcão presencial localizado nas agências do INSS.
-    [Orientações para aquisição do Selo Balcão Presencial (INSS)]().
+    [Orientações para aquisição do Selo Balcão Presencial (INSS)](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirirseloselobalcaopresencialINSS.html).
 
 2.  Nível Prata
 
 -   **Selo Internet Banking**: Validação do cadastro do cidadão por meio
     da plataforma de Internet Banking dos bancos conveniados.
-    [Orientações para aquisição do Selo Internet Banking]().
+    [Orientações para aquisição do Selo Internet Banking](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirirselointernetbanking.html).
 -   **Selo Cadastro Básico com Validação em Base de Dados de Servidores
     Públicos da União**: Validação do cadastro por meio de base de dados
     de Servidores Públicos da União. [Orientações para aquisição do Selo
     Cadastro Básico com Validação em Base de Dados de Servidores
-    Públicos da União]().
+    Públicos da União](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastrobasicovalidacaobasedadosservidorespublicosuniao.html).
 -   **Selo Validação Facial**: Validação do cadastro do cidadão por meio
     de biometria facial. A base utilizada para comparação é a da
     Carteira Nacional de Habilitação (Ministério da Infraestrutura /
-    Denatran). [Orientações para aquisição do Selo Validação Facial]().
+    Denatran). [Orientações para aquisição do Selo Validação Facial](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirirvalidacaofacial.html).
 -   **Selo Internet Banking (Agi Bank)**: Validação do cadastro do
     cidadão por meio da plataforma de Internet Banking do Agi Bank.
     [Orientações para aquisição do Selo Internet Banking do Bancos
-    Credenciados]().
+    Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (Banco do Brasil)**: Validação do cadastro
     do cidadão por meio da plataforma de Internet Banking do Banco do
     Brasil. [Orientações para aquisição do Selo Internet Banking do
-    Bancos Credenciados]().
+    Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (Banrisul)**: Validação do cadastro do
     cidadão por meio da plataforma de Internet Banking do Banco do
     Estado do Rio Grande do Sul (BANRISUL). [Orientações para aquisição
-    do Selo Internet Banking do Bancos Credenciados]().
+    do Selo Internet Banking do Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (Bradesco)**: Validação do cadastro do
     cidadão por meio da plataforma de Internet Banking do Bradesco.
     [Orientações para aquisição do Selo Internet Banking do Bancos
-    Credenciados]().
+    Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (BRB)**: Validação do cadastro do cidadão
     por meio da plataforma de Internet Banking do Banco de Brasília
     (BRB). [Orientações para aquisição do Selo Internet Banking do
-    Bancos Credenciados]().
+    Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (CAIXA)**: Validação do cadastro do cidadão
     por meio da plataforma de Internet Banking da Caixa Econômica
     Federal (CAIXA). [Orientações para aquisição do Selo Internet
-    Banking do Bancos Credenciados]().
+    Banking do Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (Itaú)**: Validação do cadastro do cidadão
     por meio da plataforma de Internet Banking da Itaú. [Orientações
-    para aquisição do Selo Internet Banking do Bancos Credenciados]().
+    para aquisição do Selo Internet Banking do Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (Sicoob)**: Validação do cadastro do cidadão
     por meio da plataforma de Internet Banking do Sistema de
     Cooperativas de Crédito do Brasil (Sicoob). [Orientações para
-    aquisição do Selo Internet Banking do Bancos Credenciados]().
+    aquisição do Selo Internet Banking do Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 -   **Selo Internet Banking (Santander)**: Validação do cadastro do
     cidadão por meio da plataforma de Internet Banking do Santander
     (Santander). [Orientações para aquisição do Selo Internet Banking do
-    Bancos Credenciados]().
+    Bancos Credenciados](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircadastroviainternetbankingbancoscredenciados.html).
 
 3.  Nível Ouro
 
 -   **Selo de Certificado Digital de Pessoa Física**: Validação do
     cadastro do cidadão por meio da utilização de certificado digital de
     pessoal física. [Orientações para aquisição do Selo de Certificado
-    Digital de Pessoa Física]().
+    Digital de Pessoa Física](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirircertificadodigitalpessoafisica.html).
 -   **Selo Validação Facial**: Validação do cadastro do cidadão por meio
     de biometria facial. A base utilizada para comparação é a da Justiça
     Eleitoral (Tribunal de Justiça Eleitoral). [Orientações para
-    aquisição do Selo Validação Facial]().
+    aquisição do Selo Validação Facial](http://faq-login-unico.servicos.gov.br/en/latest/_perguntasdafaq/comoadquirirvalidacaofacial.html).

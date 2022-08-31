@@ -9,12 +9,12 @@ ambientes para aplicação cliente possa utilizar. Essa liberação ocorre
 pelos passos:
 
 1.  Preenchimento do [Plano de
-    Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).
+    Integração](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&wdOrigin=BROWSELINK).
     Leia atentamente as instruções de preenchimento que constam no
     próprio documento/
 2.  Geração da Chave PGP - A chave PGP é solicitada para transmissão das
     credenciais de forma segura. Informações sobre como [administrar as
-    chaves PGP para credenciais do Login Único](chavepgp.html).
+    chaves PGP para credenciais do Login Único](/INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_chavepgp/).
 
 Para encaminhamento das informações aos integrantes da Secretaria de
 Governança Digital (SGD) do Ministério da Economia (ME), deverá seguir
@@ -45,7 +45,7 @@ as orientações:
     integração está disponível para sociedade;
 
 **O endereço de envio encontra-se no** [Plano de
-Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).
+Integração](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&wdOrigin=BROWSELINK).
 
 # Alteração de Configuração
 
@@ -74,4 +74,4 @@ orientações:
   - URL de Logout deseja adicionar
 
 **O endereço de envio encontra-se no** [Plano de
-Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc).
+Integração](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&wdOrigin=BROWSELINK).
