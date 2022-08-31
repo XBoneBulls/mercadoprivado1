@@ -242,7 +242,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     bancos integrados ao Login Único:[Documento verificar Código de
     Compensação dos Bancos]().
 
-## Passo 9
+## Passo 10
 
 Para verificar quais níveis da conta do cidadão está localizada, deverá
 acessar, pelo método GET, o serviço
