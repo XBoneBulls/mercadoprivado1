@@ -37,8 +37,10 @@ $ git clone git@gitcorporativo.serpro:brcidadao-10225/acesso-gov-mercado-privado
 # Acesse a pasta do projeto no terminal/cmd
 $ cd acesso-gov-mercado-privado
 
-# Instale o mkdocs
+# Instale o mkdocs e instale as extensões
 $ pip install mkdocs
+$ pip install mkdocs-material
+$ pip install pymdown-extensions --force
 
 # Mande servir a página
 $ mkdocs serve
