@@ -8,7 +8,7 @@ necessária na aplicação consumidora.
 
 # JAVA
 
-[Exemplo para download em JAVA](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/ExemploIntegracaoGovBr.java)
+[Exemplo para download em JAVA](./EXEMPLO-INTEGRACAO.java)
 
 ## **Observações para executar o exemplo JAVA**
 

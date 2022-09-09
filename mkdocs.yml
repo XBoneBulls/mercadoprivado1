@@ -8,6 +8,7 @@ nav:
       - Catalogo de Confiabilidades: LEGISLACAO_E_CONCEITOS/vertopal.com_catalogoconfiabilidades.md
       - Escopo de atributos: LEGISLACAO_E_CONCEITOS/vertopal.com_escopoatributos.md
   - Informações Técnicas para Integração:
+      - Client Manager: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_clientmanager.md
       - Chave Pgp: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_chavepgp.md
       - Solicitar configuração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_solicitarconfiguracao.md
       - Configurar a integração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_iniciarintegracao.md

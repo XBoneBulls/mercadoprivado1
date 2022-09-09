@@ -78,7 +78,7 @@ enviando os parâmetros:
   | **Variavél** | **Descrição** |
   | ------------ | ------------- |
   | **code**     | Código de autenticação gerado pelo provedor. Será utilizado para obtenção do Token de Resposta. Possui tempo de expiração e só pode ser utilizado uma única vez. |
-  | **state**    | *State* gerado no [Passo 3](iniciarintegracao.html#passo-3) que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o *code* gerado. O cliente consegue saber se o CODE veio de um state gerado por ele. |
+  | **state**    | *State* gerado no [Passo 3](./vertopal.com_iniciarintegracao.md#passo-3) que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o *code* gerado. O cliente consegue saber se o CODE veio de um state gerado por ele. |
 
 ## Passo 5
 
@@ -119,7 +119,7 @@ Parâmetros do Body para requisição Post
   | **grant_type** | Especifica para o provedor o tipo de autorização. Neste caso será **authorization_code** |
   | **code** | Código retornado pela requisição anterior (exemplo: Z85qv1) |
   | **redirect_uri** | URI de retorno cadastrada para a aplicação cliente. Este parâmetro não pode conter caracteres especiais conforme consta na especificação [auth 2.0 Redirection Endpoint](https://tools.ietf.org/html/rfc6749#section-3.1.2)
-  | **code_verifier** | Senha sem criptografia enviada do parâmetro **code_challenge** presente no [Passo 3](iniciarintegracao.html#passo-3).  O codeVerifier deve ser uma string randômica, ter no mínimo 43 caracteres e no máximo 128. |
+  | **code_verifier** | Senha sem criptografia enviada do parâmetro **code_challenge** presente no [Passo 3](./vertopal.com_iniciarintegracao.md#passo-3).  O codeVerifier deve ser uma string randômica, ter no mínimo 43 caracteres e no máximo 128. |
 
 Exemplo de *query*
 
@@ -211,7 +211,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     segundo fator com código encaminhado pelo aplicativo gov.br).
 -   Documento para verificação do Código de Compensação dos possíveis
     bancos integrados ao Login Único:[Documento verificar Código de
-    Compensação dos Bancos](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/TabelaBacen.pdf).
+    Compensação dos Bancos](./TABELA_BACEN.pdf).
 
 **JSON do ID_TOKEN**
 
@@ -240,7 +240,7 @@ ao extrair do JSON codificado os seguintes parâmetros:
     segundo fator com código encaminhado pelo aplicativo gov.br).
 -   Documento para verificação do Código de Compensação dos possíveis
     bancos integrados ao Login Único:[Documento verificar Código de
-    Compensação dos Bancos](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/TabelaBacen.pdf).
+    Compensação dos Bancos](./TABELA_BACEN.pdf).
 
 ## Passo 10
 
@@ -268,47 +268,46 @@ JSON no seguinte formato:
 ]
 ```
 
-Verificar quais níveis estão disponíveis, acesse [Resultado Esperado do
+==Verificar quais níveis estão disponíveis, acesse== [Resultado Esperado do
 Acesso ao Serviço de Confiabilidade Cadastral
-(Níveis)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis)
+(Níveis)](./vertopal.com_iniciarintegracao.md#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis)
 
 # Acesso ao serviço de Catálogo de Confiabilidades (Selos)
 
-1.  Com usuário autenticado, deverá acessar, por meio do método GET ou
+1-  Com usuário autenticado, deverá acessar, por meio do método GET ou
     POST, a URL <https://confiabilidades.staging.acesso.gov.br/>
 
 Parâmetros da Query para requisição GET
 <https://confiabilidades.staging.acesso.gov.br/>
 
-  **Variavél**          **Descrição**
-  --------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **client_id**         Chave de acesso, que identifica o serviço consumidor fornecido pelo Login Único para a aplicação cadastrada
-  **niveis**            Recurso de segurança da informação da identidade, que permitem flexibilidade para realização do acesso. **Atributo opcional**
-  **categorias**        Permitem manutenção mais facilitada da utilização dos níveis e confiabilidades (selos) do Login Único. **Atributo obrigatório**
-  **confiabilidades**   Consistem em orientar para qualificação das contas com a obtenção dos atributos autoritativos do cidadão a partir das bases oficias, por meio das quais permitirão a utilização da credencial de acesso em sistemas internos dos clientes e serviços providos diretamente ao cidadão. **Atributo obrigatório**
+  |**Variavél**     |     **Descrição**|
+  |-----------------|------------------|
+  |**client_id**    |    Chave de acesso, que identifica o serviço consumidor fornecido pelo Login Único para a aplicação cadastrada|
+  |**niveis**       |     Recurso de segurança da informação da identidade, que permitem flexibilidade para realização do acesso.**Atributo opcional**| 
+  |**categorias**|   Permitem manutenção mais facilitada da utilização dos níveis e confiabilidades (selos) do Login Único.**Atributo obrigatório**| |**confiabilidades**|  Consistem em orientar para qualificação das contas com a obtenção dos atributos autoritativos do cidadão a partir das bases oficias, por meio das quais permitirão a utilização da credencial de acesso em sistemas internos dos clientes e serviços providos diretamente ao cidadão. **Atributo obrigatório**|
 
-2.  O resultado será o Catálogo apresentado com as configurações
+2-  O resultado será o Catálogo apresentado com as configurações
     solicitadas. Após atendido as configurações, o Login Único devolverá
     o fluxo para aplicação por meio da URL de Lançador de Serviços,
     conforme [Plano de
-    Integração](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&wdOrigin=BROWSELINK).
+    Integração](./PLANO-DE-INTEGRACAO-VERSAO4.doc).
 
 **Observações sobre as variáveis do serviço de catálogo**
 
-1.  Conteúdo para variável *niveis* : Será a informação do atributo id
-    presente em cada nível no [Resultado Esperado do Acesso ao Serviço
+1.  ==Conteúdo para variável *niveis* : Será a informação do atributo id
+    presente em cada nível no== [Resultado Esperado do Acesso ao Serviço
     de Confiabilidade Cadastral
     (Níveis)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis)
-2.  Contéudo para variável *confiabilidades*: Será a informação do
-    atributo id presentes em cada confiabilidade no [Resultado Esperado
+2.  ==Contéudo para variável *confiabilidades*: Será a informação do
+    atributo id presentes em cada confiabilidade no== [Resultado Esperado
     do Acesso ao Serviço de Confiabilidade Cadastral
     (Selos)](https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos)
 3.  Tratamento do conteúdo para cada variável:
 
--   Todos são obrigatórios, deve-se separá-los por vírgula. **Exemplo
+    - Todos são obrigatórios, deve-se separá-los por vírgula. **Exemplo
     (confiabilidades=301,801)**
--   Apenas um é obrigatório, deve-se separar por barra invertida.
-    **Exemplo (confiabilidades=(301/801)**
+    - Apenas um é obrigatório, deve-se separar por barra invertida.
+    **Exemplo (confiabilidades=(301/801))**
 
 # Acesso ao Serviço de Log Out
 
@@ -324,7 +323,7 @@ Parâmetros da Query para requisição GET
 
   | **Variavél** | **Descrição** |
   |--------------| ------------- |
-  | **post_logout_redirect_uri** | URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo **URL de Log Out** presente no [Plano de Integração](arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc). |
+  | **post_logout_redirect_uri** | URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo **URL de Log Out** presente no [Plano de Integração](./PLANO-DE-INTEGRACAO-VERSAO4.doc). |
   | **id_token_hint**  | Cópia do ID Token gerado anteriormente em formato JWT |
 
 Exemplo 1 de **execução** no front end em javascript

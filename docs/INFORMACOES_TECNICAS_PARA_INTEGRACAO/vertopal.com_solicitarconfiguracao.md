@@ -9,7 +9,7 @@ ambientes para aplicação cliente possa utilizar. Essa liberação ocorre
 pelos passos:
 
 1.  Preenchimento do [Plano de
-    Integração](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&wdOrigin=BROWSELINK).
+    Integração](./PLANO-DE-INTEGRACAO-VERSAO4.doc).
     Leia atentamente as instruções de preenchimento que constam no
     próprio documento/
 2.  Geração da Chave PGP - A chave PGP é solicitada para transmissão das

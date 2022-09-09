@@ -364,20 +364,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../vertopal.com_execucaoexemplo/" class="md-nav__link">
-        Exemplo de execução
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -390,12 +376,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Iniciar a integração
+          Configurar a integração
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Iniciar a integração
+        Configurar a integração
       </a>
       
         
@@ -483,20 +469,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#passo-11" class="md-nav__link">
-    Passo 11
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passo-12" class="md-nav__link">
-    Passo 12
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -513,7 +485,21 @@
   
     <li class="md-nav__item">
       <a href="../vertopal.com_exemplointegracao/" class="md-nav__link">
-        Exemplo de integração
+        Exemplo de implementação
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vertopal.com_execucaoexemplo/" class="md-nav__link">
+        Execução do exemplo de implementação
       </a>
     </li>
   
@@ -622,20 +608,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#passo-11" class="md-nav__link">
-    Passo 11
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#passo-12" class="md-nav__link">
-    Passo 12
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -670,27 +642,59 @@ passos:</p>
 <strong>Entrar com GOV.BR</strong>. Para o formato do botão, seguir as orientações do
 <a href="https://dsgov.estaleiro.serpro.gov.br/components/signin?tab=designer">Design
 System</a>
-[site externo]{.image}.</p>
+.</p>
 <h2 id="passo-2">Passo 2</h2>
 <p>Ao requisitar autenticação via Provedor, o mesmo verifica se o usuário
 está logado. Caso o usuário não esteja logado o provedor redireciona
 para a página de login.</p>
 <h2 id="passo-3">Passo 3</h2>
 <p>A requisição é feita através de um GET para o endereço
-<a href="https://sso.staging.acesso.gov.br/authorize">https://sso.staging.acesso.gov.br/authorize</a> passando as seguintes
+<a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/auth">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/auth</a> passando as seguintes
 informações:</p>
-<p><strong>Variavél</strong>                <strong>Descrição</strong></p>
-<hr />
-<p><strong>response_type</strong>           Especifica para o provedor o tipo de autorização. Neste caso será <strong>code</strong>
-  <strong>client_id</strong>               Chave de acesso, que identifica o serviço consumidor fornecido pelo Login Único para a aplicação cadastrada
-  <strong>scope</strong>                   Especifica os recursos que o serviço consumidor quer obter. Um ou mais escopos inseridos para a aplicação cadastrada. Informação a ser preenchida por padrão: <strong>openid+(email/phone)+profile+govbr_confiabilidades</strong>.
-  <strong>redirect_uri</strong>            URI de retorno cadastrada para a aplicação cliente no formato <em>URL Encode</em>. Este parâmetro não pode conter caracteres especiais conforme consta na especificação <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">auth 2.0 Redirection Endpoint</a>
-  <strong>nonce</strong>                   Sequência de caracteres usado para associar uma sessão do serviço consumidor a um <em>Token</em> de ID e para atenuar os ataques de repetição. Pode ser um valor aleatório, mas que não seja de fácil dedução. Item obrigatório.
-  <strong>state</strong>                   Valor usado para manter o estado entre a solicitação e o retorno de chamada.
-  <strong>code_challenge</strong>          Senha gerada pelo cliente para proteger o code da requisicao do Authorize. Seguir o padrão BASE64URL-ENCODE(SHA256(ASCII(Valor da Atributo do code_verifier a ser utilizado no /Token))).
-  <strong>code_challenge_method</strong>   Será o método para proteger a senha enviada no parâmetro code_challenge. O padrão será \"S256\".</p>
+<table>
+<thead>
+<tr>
+<th><strong>Variavél</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>response_type</strong></td>
+<td>Especifica para o provedor o tipo de autorização. Neste caso será <strong>code</strong></td>
+</tr>
+<tr>
+<td><strong>client_id</strong></td>
+<td>Chave de acesso, que identifica o serviço consumidor fornecido pelo Login Único para a aplicação cadastrada</td>
+</tr>
+<tr>
+<td><strong>scope</strong></td>
+<td>Especifica os recursos que o serviço consumidor quer obter. Um ou mais escopos inseridos para a aplicação cadastrada. Exemplo: <strong>openid+email+phone</strong>.</td>
+</tr>
+<tr>
+<td><strong>redirect_uri</strong></td>
+<td>URI de retorno cadastrada para a aplicação cliente no formato <em>URL Encode</em>. Este parâmetro não pode conter caracteres especiais conforme consta na especificação <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">auth 2.0 Redirection Endpoint</a></td>
+</tr>
+<tr>
+<td><strong>nonce</strong></td>
+<td>Sequência de caracteres usado para associar uma sessão do serviço consumidor a um <em>Token</em> de ID e para atenuar os ataques de repetição. Pode ser um valor aleatório, mas que não seja de fácil dedução. Item obrigatório.</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td>Valor usado para manter o estado entre a solicitação e o retorno de chamada.</td>
+</tr>
+<tr>
+<td><strong>code_challenge</strong></td>
+<td>Senha gerada pelo cliente para proteger o code da requisicao do Authorize. Seguir o padrão BASE64URL-ENCODE(SHA256(ASCII(Valor da Atributo do code_verifier a ser utilizado no /Token))).</td>
+</tr>
+<tr>
+<td><strong>code_challenge_method</strong></td>
+<td>Será o método para proteger a senha enviada no parâmetro code_challenge. O padrão será \"S256\".</td>
+</tr>
+</tbody>
+</table>
 <p>Exemplo de requisição:</p>
-<pre><code class="language-console">https://sso.staging.acesso.gov.br/authorize?response_type=code&amp;client_id=ec4318d6-f797-4d65-b4f7-39a33bf4d544&amp;scope=openid+(email/phone)+profile&amp;redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&amp;nonce=3ed8657fd74c&amp;state=358578ce6728b%code_challenge=K9LToxk012GYrMAwyspMMZZUdP5fpI81_vedD9dO4bI&amp;code_challenge_method=S256
+<pre><code class="language-console">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/auth?response_type=code&amp;client_id=ec4318d6-f797-4d65-b4f7-39a33bf4d544&amp;scope=openid+email+phone+profile&amp;redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&amp;nonce=3ed8657fd74c&amp;state=358578ce6728b%code_challenge=K9LToxk012GYrMAwyspMMZZUdP5fpI81_vedD9dO4bI&amp;code_challenge_method=S256
 </code></pre>
 <p><strong>Observações para Passo 3:</strong></p>
 <ul>
@@ -701,15 +705,30 @@ informações:</p>
     obrigatoriamente ser usado evitando que a resposta do \"authorize\"
     possa ser utilizada por um terceiro agente. Detalhes na <a href="https://datatracker.ietf.org/doc/html/rfc7636">RFC
     PKCE</a></li>
+<li>Parâmetro <strong>nonce</strong> é obrigatório e deve ser formado por uma String aleatória. O mesmo <strong>nonce</strong>  estará presente no <strong>ID Token</strong>.</li>
 </ul>
 <h2 id="passo-4">Passo 4</h2>
 <p>Após a autorização, a requisição é retornada para a URL especificada no
-redirect_uri do serviço <a href="https://sso.staging.acesso.gov.br/authorize">https://sso.staging.acesso.gov.br/authorize</a>,
+redirect_uri especificada no passo anterior,
 enviando os parâmetros:</p>
-<p><strong>Variavél</strong>   <strong>Descrição</strong></p>
-<hr />
-<p><strong>code</strong>       Código de autenticação gerado pelo provedor. Será utilizado para obtenção do Token de Resposta. Possui tempo de expiração e só pode ser utilizado uma única vez.
-  <strong>state</strong>      <em>State</em> passado anteriormente do <a href="https://sso.staging.acesso.gov.br/authorize">https://sso.staging.acesso.gov.br/authorize</a> que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o <em>code</em> gerado. O cliente consegue saber se o CODE veio de um state gerado por ele.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Variavél</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>code</strong></td>
+<td>Código de autenticação gerado pelo provedor. Será utilizado para obtenção do Token de Resposta. Possui tempo de expiração e só pode ser utilizado uma única vez.</td>
+</tr>
+<tr>
+<td><strong>state</strong></td>
+<td><em>State</em> gerado no <a href="iniciarintegracao.html#passo-3">Passo 3</a> que pode ser utilizado para controle da aplicação cliente. Pode correlacionar com o <em>code</em> gerado. O cliente consegue saber se o CODE veio de um state gerado por ele.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="passo-5">Passo 5</h2>
 <p>Após autenticado, o provedor redireciona para a página de autorização. O
 usuário habilitará o consumidor no sistema para os escopos solicitados.
@@ -719,29 +738,63 @@ Connect</a>
 ;</p>
 <h2 id="passo-6">Passo 6</h2>
 <p>Para obter o <em>ticket de acesso</em>, o consumidor deve fazer uma requisição
-POST para o endereço <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a> passando
+POST para o endereço <a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token</a> passando
 as seguintes informações:</p>
 <p>Parâmetros do Header para requisição Post
-<a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a></p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>Content-Type</strong>    Tipo do conteúdo da requisição que está sendo enviada. Nesse caso estamos enviando como um formulário
-  <strong>Authorization</strong>   Informação codificada em <em>Base64</em>, no seguinte formato: CLIENT_ID:CLIENT_SECRET (senha de acesso do serviço consumidor)(utilizar <a href="https://www.base64decode.org/">codificador para Base64</a> [site externo]{.image} para gerar codificação). A palavra Basic deve está antes da informação.</p>
+<a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>Variavél</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Content-Type</strong></td>
+<td>Tipo do conteúdo da requisição que está sendo enviada. Nesse caso estamos enviando como um formulário</td>
+</tr>
+<tr>
+<td><strong>Authorization</strong></td>
+<td>Informação codificada em <em>Base64</em>, no seguinte formato: CLIENT_ID:CLIENT_SECRET (senha de acesso do serviço consumidor)(utilizar <a href="https://www.base64decode.org/">codificador para Base64</a> [site externo]{.image} para gerar codificação). A palavra Basic deve está antes da informação.</td>
+</tr>
+</tbody>
+</table>
 <p>Exemplo de <em>header</em>:</p>
 <pre><code class="language-console">Content-Type:application/x-www-form-urlencoded
 Authorization: Basic                                            
 ZWM0MzE4ZDYtZjc5Ny00ZDY1LWI0ZjctMzlhMzNiZjRkNTQ0OkFJSDRoaXBfTUJYcVJkWEVQSVJkWkdBX2dRdjdWRWZqYlRFT2NWMHlFQll4aE1iYUJzS0xwSzRzdUVkSU5FcS1kNzlyYWpaZ3I0SGJuVUM2WlRXV1lJOA==
 </code></pre>
 <p>Parâmetros do Body para requisição Post
-<a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a></p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>grant_type</strong>      Especifica para o provedor o tipo de autorização. Neste caso será <strong>authorization_code</strong>
-  <strong>code</strong>            Código retornado pela requisição anterior (exemplo: Z85qv1)
-  <strong>redirect_uri</strong>    URI de retorno cadastrada para a aplicação cliente no formato <em>URL Encode</em>. Este parâmetro não pode conter caracteres especiais conforme consta na especificação <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">auth 2.0 Redirection Endpoint</a>
-  <strong>code_verifier</strong>   Senha sem criptografia enviada do parâmetro <strong>code_challenge</strong> presente no <a href="iniciarintegracao.html#passo-3">Passo 3</a></p>
+<a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>Variavél</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>grant_type</strong></td>
+<td>Especifica para o provedor o tipo de autorização. Neste caso será <strong>authorization_code</strong></td>
+</tr>
+<tr>
+<td><strong>code</strong></td>
+<td>Código retornado pela requisição anterior (exemplo: Z85qv1)</td>
+</tr>
+<tr>
+<td><strong>redirect_uri</strong></td>
+<td>URI de retorno cadastrada para a aplicação cliente. Este parâmetro não pode conter caracteres especiais conforme consta na especificação <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">auth 2.0 Redirection Endpoint</a></td>
+</tr>
+<tr>
+<td><strong>code_verifier</strong></td>
+<td>Senha sem criptografia enviada do parâmetro <strong>code_challenge</strong> presente no <a href="iniciarintegracao.html#passo-3">Passo 3</a>.  O codeVerifier deve ser uma string randômica, ter no mínimo 43 caracteres e no máximo 128.</td>
+</tr>
+</tbody>
+</table>
 <p>Exemplo de <em>query</em></p>
-<pre><code class="language-console">curl -X POST -d 'grant_type=authorization_code&amp;code=Z85qv1&amp;redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php'&amp;code_verifier='LoginUnicoAplicacaoCodeVerifier' https://sso.staging.acesso.gov.br/token    
+<pre><code class="language-console">curl -X POST -d 'grant_type=authorization_code&amp;code=Z85qv1&amp;redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php'&amp;code_verifier='saoksdokaosdkasodkasodosdkaodksaodasodsakdaoskdsaok2212121$$2212ybhshsadju' https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/token    
 </code></pre>
 <p>O serviço retornará, em caso de sucesso, no formato JSON, as informações
 conforme exemplo:</p>
@@ -749,7 +802,10 @@ conforme exemplo:</p>
     &quot;access_token&quot;: &quot;(Token de acesso a recursos protegidos do autenticador, bem como serviços do Login Único.)&quot;, 
     &quot;id_token&quot;: &quot;(Token de autenticação com informações básicas do usuário.)&quot;, 
     &quot;token_type&quot;: &quot;(O tipo do token gerado. Padrão: Bearer)&quot;, 
-    &quot;expires_in&quot;: &quot;(Tempo de vida do token em segundos.)&quot; 
+    &quot;expires_in&quot;: &quot;(Tempo de vida do token em segundos.)&quot; ,
+    &quot;refresh_token&quot;: &quot;(Token que atualiza os tokens de acesso, conforme eles expiram)&quot;,
+    &quot;refresh_expires_in&quot;: &quot;(Tempo de vida do refresh token em segundos.)&quot;,
+    &quot;not-before-policy&quot;: &quot;(data em formato timestamp. Qualquer token com data de publicação anterior a esta data é invalidado.)&quot;
 } 
 </code></pre>
 <p><strong>Observações para Passo 6:</strong></p>
@@ -782,23 +838,24 @@ método de acesso e cadastro básico do usuário, há necessidade da
 aplicação consumidora validar se as informações foram geradas pelos
 serviços do Login Único. Esta validação ocorrerá por meio da consulta da
 chave pública disponível no serviço
-<a href="https://sso.staging.acesso.gov.br/jwk">https://sso.staging.acesso.gov.br/jwk</a>. Para isso, verificar o método
-<strong>processToClaims</strong> dos <a href="exemplointegracao.html">Exemplos de
-Integração</a>.</p>
+<a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/certs">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/certs</a>. </p>
 <h2 id="passo-9">Passo 9</h2>
 <p>A utilização das informações do <strong>ACCESS_TOKEN</strong> e <strong>ID_TOKEN</strong> ocorrerá
 ao extrair do JSON codificado os seguintes parâmetros:</p>
 <p><strong>JSON do ACCESS_TOKEN</strong></p>
 <pre><code class="language-JSON">{
-    &quot;sub&quot;: &quot;(CPF do usuário autenticado)&quot;,
-    &quot;aud&quot;: &quot;Client ID da aplicação onde o usuário se autenticou&quot;,
+    &quot;sub&quot;: &quot;(ID do usuário no Autenticador)&quot;,
+    &quot;azp&quot;: &quot;Client ID da aplicação onde o usuário se autenticou&quot;,
     &quot;scope&quot;: [&quot;(Escopos autorizados pelo provedor de autenticação.)&quot;],
     &quot;amr&quot;: [&quot;(Listagem dos fatores de autenticação do usuário. Pode ser “app” se logou por QR-CODE do aplicativo gov.br, “passwd” se o mesmo logou fornecendo a senha, “x509” se o mesmo utilizou certificado digital ou certificado em nuvem, ou “bank” para indicar utilização de conta bancária para autenticar. Esse último seguirá com número de identificação do banco, conforme código de compensação do Bacen presente ao final da explicação.)&quot;],
     &quot;iss&quot;: &quot;(URL do provedor de autenticação que emitiu o token.)&quot;,
     &quot;exp&quot;: &quot;(Data/hora de expiração do token)&quot;,
     &quot;iat&quot;: &quot;(Data/hora em que o token foi emitido.)&quot;,
     &quot;jti&quot;: &quot;(Identificador único do token, reconhecido internamente pelo provedor de autenticação.)&quot;,
-    &quot;cnpj&quot;: &quot;CNPJ vinculado ao usuário autenticado. Atributo será preenchido quando autenticação ocorrer por certificado digital de pessoal jurídica.&quot;
+    &quot;typ&quot;: &quot;Bearer&quot;,
+    &quot;sid&quot;: &quot;(identificador único utilizado na sessão)&quot;,
+    &quot;auth_time&quot;: &quot;(indica quando a autenticação ocorreu)&quot;
+
 }
 </code></pre>
 <p><strong>Observações para ACCESS_TOKEN:</strong></p>
@@ -810,14 +867,13 @@ ao extrair do JSON codificado os seguintes parâmetros:</p>
     conteúdos <em>mfa</em> (indica presença de segundo fator) e <em>otp</em> (forma de
     segundo fator com código encaminhado pelo aplicativo gov.br).</li>
 <li>Documento para verificação do Código de Compensação dos possíveis
-    bancos integrados ao Login Único:<a href="">Documento verificar Código de
+    bancos integrados ao Login Único:<a href="https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/TabelaBacen.pdf">Documento verificar Código de
     Compensação dos Bancos</a>.</li>
 </ul>
 <p><strong>JSON do ID_TOKEN</strong></p>
 <pre><code class="language-JSON">{
-    &quot;sub&quot;: &quot;(CPF do usuário autenticado.)&quot;,
+    &quot;sub&quot;: &quot;(ID do usuário no Autenticador)&quot;,
     &quot;amr&quot;: [&quot;(Listagem dos fatores de autenticação do usuário. Pode ser “app” se logou por QR-CODE do aplicativo gov.br, “passwd” se o mesmo logou fornecendo a senha, “x509” se o mesmo utilizou certificado digital ou certificado em nuvem, ou “bank” para indicar utilização de conta bancária para autenticar. Esse último seguirá com número de identificação do banco, conforme código de compensação do Bacen presente ao final da explicação.)&quot;],
-    &quot;picture&quot;: &quot;(URL de acesso à foto do usuário cadastrada no Gov.br. A mesma é protegida e pode ser acessada passando o access token recebido.)&quot;,
     &quot;name&quot;: &quot;(Nome cadastrado no Gov.br do usuário autenticado.)&quot;,
     &quot;phone_number_verified&quot;: &quot;(Confirma se o telefone foi validado no cadastro do Gov.br. Poderá ter o valor &quot;true&quot; ou &quot;false&quot;)&quot;,
     &quot;phone_number&quot;: &quot;(Número de telefone cadastrado no Gov.br do usuário autenticado. Caso o atributo phone_number_verified do ID_TOKEN tiver o valor false, o atributo phone_number não virá no ID_TOKEN)&quot;,
@@ -828,7 +884,7 @@ ao extrair do JSON codificado os seguintes parâmetros:</p>
 </code></pre>
 <p><strong>Observações para ID_TOKEN:</strong></p>
 <ul>
-<li>Os paramêtros email,phone_number,picture não são obrigatórios. Ambos
+<li>Os paramêtros email e phone_number não são obrigatórios. Ambos
     podem estar preenchidos ou não.</li>
 <li>Caso um novo método de autenticação seja adicionado, será listado no
     atributo <em>AMR</em>. As integrações devem contemplar futuras adições.</li>
@@ -837,19 +893,10 @@ ao extrair do JSON codificado os seguintes parâmetros:</p>
     conteúdos <em>mfa</em> (indica presença de segundo fator) e <em>otp</em> (forma de
     segundo fator com código encaminhado pelo aplicativo gov.br).</li>
 <li>Documento para verificação do Código de Compensação dos possíveis
-    bancos integrados ao Login Único:<a href="">Documento verificar Código de
+    bancos integrados ao Login Único:<a href="https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/arquivos/TabelaBacen.pdf">Documento verificar Código de
     Compensação dos Bancos</a>.</li>
 </ul>
 <h2 id="passo-10">Passo 10</h2>
-<p>Para solicitação do conteúdo da foto salva no cadastro do cidadão,
-deverá acessar, pelo método GET, o serviço
-<a href="https://sso.staging.acesso.gov.br/userinfo/picture">https://sso.staging.acesso.gov.br/userinfo/picture</a> e acrescentar o
-atributo Authorization ao header do HTTP da requisição:</p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a></p>
-<p>O serviço retornará, em caso de sucesso a informação em formato Base64</p>
-<h2 id="passo-11">Passo 11</h2>
 <p>Para verificar quais níveis da conta do cidadão está localizada, deverá
 acessar, pelo método GET, o serviço
 <a href="https://api.staging.acesso.gov.br/confiabilidades/v3/contas/">https://api.staging.acesso.gov.br/confiabilidades/v3/contas/</a><strong>cpf</strong>/niveis?response-type=ids</p>
@@ -857,7 +904,7 @@ acessar, pelo método GET, o serviço
 <a href="https://api.staging.acesso.gov.br/confiabilidades/v3/contas/">https://api.staging.acesso.gov.br/confiabilidades/v3/contas/</a><strong>cpf</strong>/niveis?response-type=ids</p>
 <p><strong>Variavél</strong>        <strong>Descrição</strong></p>
 <hr />
-<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a>
+<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <link_confiabilidades>
   <strong>cpf</strong>             CPF do cidadão (sem ponto, barra etc).</p>
 <p>A resposta em caso de sucesso retorna sempre um <strong>array</strong> de objetos
 JSON no seguinte formato:</p>
@@ -868,164 +915,9 @@ JSON no seguinte formato:</p>
     }
 ]
 </code></pre>
-<p>Verificar quais níveis estão disponíveis, acesse <a href="#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis">Resultado Esperado do
+<p>Verificar quais níveis estão disponíveis, acesse <a href="https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis">Resultado Esperado do
 Acesso ao Serviço de Confiabilidade Cadastral
 (Níveis)</a></p>
-<h2 id="passo-12">Passo 12</h2>
-<p>Para verificar quais selos de confiabilidade a conta do cidadão possui,
-deverá acessar, pelo método GET, o serviço
-<a href="https://api.staging.acesso.gov.br/confiabilidades/v3/contas/">https://api.staging.acesso.gov.br/confiabilidades/v3/contas/</a><strong>cpf</strong>/confiabilidades?response-type=ids</p>
-<p>Parâmetros para requisição GET
-<a href="https://api.staging.acesso.gov.br/confiabilidades/v3/contas/">https://api.staging.acesso.gov.br/confiabilidades/v3/contas/</a><strong>cpf</strong>/confiabilidades?response-type=ids</p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a>
-  <strong>cpf</strong>             CPF do cidadão (sem ponto, barra etc).</p>
-<p>A resposta em caso de sucesso retorna sempre um <strong>array</strong> de objetos
-JSON no seguinte formato:</p>
-<pre><code class="language-JSON">[
-    {
-    &quot;id&quot;: &quot;(Identificação para reconhecer a confiabilidade)&quot;,
-    &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    }
-]
-</code></pre>
-<p>Verificar quais selos de confiabilidade estão disponíveis, acesse
-<a href="iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos">Resultado Esperado do Acesso ao Serviço de Confiabilidade Cadastral
-(Selos)</a></p>
-<h1 id="resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis">Resultado Esperado do Acesso ao Serviço de Confiabilidade Cadastral (Níveis)</h1>
-<p>As categorias existentes no Login Único são:</p>
-<pre><code class="language-JSON">[
-    {
-        &quot;id&quot;: &quot;1 (Bronze)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da categoria na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;2 (Prata)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da categoria na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;3 (Ouro)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da categoria na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    }
-]
-</code></pre>
-<h1 id="resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos">Resultado Esperado do Acesso ao Serviço de Confiabilidade Cadastral (Selos)</h1>
-<p>Os selos existentes no Login Único são:</p>
-<pre><code class="language-JSON">[
-    {
-        &quot;id&quot;: &quot;101 (kba_previdencia)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;201 (cadastro_basico)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;301 (servidor_publico)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-    {
-        &quot;id&quot;: &quot;401 (biovalid_facial)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;501 (balcao_sat_previdencia)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;502 (balcao_denatran)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;503 (balcao_correios)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;504 (balcao_cadastro_presencial_govbr)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;601 (balcao_nai_previdencia)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;609 (agi_bank_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;602 (bb_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;603 (banrisul_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;604 (bradesco_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;605 (caixa_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;606 (brb_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-
-    {
-        &quot;id&quot;: &quot;605 (caixa_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;610 (itau_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-        {
-        &quot;id&quot;: &quot;607 (sicoob_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;624 (sicred_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;608 (santander_internet_banking)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;701 (tse_facial)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    },
-
-    {
-        &quot;id&quot;: &quot;801 (certificado_digital)&quot;,
-        &quot;dataAtualizacao&quot;: &quot;(Mostra a data e hora que ocorreu atualização da confiabilidade na conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    }       
-]
-</code></pre>
 <h1 id="acesso-ao-servico-de-catalogo-de-confiabilidades-selos">Acesso ao serviço de Catálogo de Confiabilidades (Selos)</h1>
 <ol>
 <li>Com usuário autenticado, deverá acessar, por meio do método GET ou
@@ -1043,17 +935,17 @@ JSON no seguinte formato:</p>
 <li>O resultado será o Catálogo apresentado com as configurações
     solicitadas. Após atendido as configurações, o Login Único devolverá
     o fluxo para aplicação por meio da URL de Lançador de Serviços,
-    conforme <a href="arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc">Plano de
+    conforme <a href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fmanual-roteiro-integracao-login-unico.servicos.gov.br%2Fpt%2Fstable%2Farquivos%2FModelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc&amp;wdOrigin=BROWSELINK">Plano de
     Integração</a>.</li>
 </ol>
 <p><strong>Observações sobre as variáveis do serviço de catálogo</strong></p>
 <ol>
 <li>Conteúdo para variável <em>niveis</em> : Será a informação do atributo id
-    presente em cada nível no <a href="#resultado-esperado-do-acesso-ao-serviço-de-confiabilidade-cadastral-níveis">Resultado Esperado do Acesso ao Serviço
+    presente em cada nível no <a href="https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-niveis">Resultado Esperado do Acesso ao Serviço
     de Confiabilidade Cadastral
     (Níveis)</a></li>
 <li>Contéudo para variável <em>confiabilidades</em>: Será a informação do
-    atributo id presentes em cada confiabilidade no <a href="iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos">Resultado Esperado
+    atributo id presentes em cada confiabilidade no <a href="https://manual-roteiro-integracao-login-unico.servicos.gov.br/pt/stable/iniciarintegracao.html#resultado-esperado-do-acesso-ao-servico-de-confiabilidade-cadastral-selos">Resultado Esperado
     do Acesso ao Serviço de Confiabilidade Cadastral
     (Selos)</a></li>
 <li>
@@ -1071,132 +963,39 @@ JSON no seguinte formato:</p>
 <li><strong>Implementação obrigatória</strong> a fim de encerrar a sessão do usuário
     com o Login Único.</li>
 <li>Com usuário autenticado, deverá acessar, por meio do método GET ou
-    POST, a URL: <a href="https://sso.staging.acesso.gov.br/logout">https://sso.staging.acesso.gov.br/logout</a>. O acesso ao
+    POST, a URL: <a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout</a>. O acesso ao
     Log Out deverá ser pelo <strong>Front End</strong> da aplicação a ser integrada
     com Login Único.</li>
 </ol>
 <p>Parâmetros da Query para requisição GET
-<a href="https://sso.staging.acesso.gov.br/logout">https://sso.staging.acesso.gov.br/logout</a></p>
-<p><strong>Variavél</strong>                   <strong>Descrição</strong></p>
-<hr />
-<p><strong>post_logout_redirect_uri</strong>   URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo <strong>URL de Log Out</strong> presente no <a href="arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc">Plano de Integração</a>.</p>
+<a href="https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout">https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout</a></p>
+<table>
+<thead>
+<tr>
+<th><strong>Variavél</strong></th>
+<th><strong>Descrição</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>post_logout_redirect_uri</strong></td>
+<td>URL que direciona ao Login Único qual página deverá ser aberta quando o token for invalidado. A URL deverá ser previamente liberada por meio do preenchimento do campo <strong>URL de Log Out</strong> presente no <a href="arquivos/Modelo_PlanodeIntegracao_LOGINUNICO_Versao-4.doc">Plano de Integração</a>.</td>
+</tr>
+<tr>
+<td><strong>id_token_hint</strong></td>
+<td>Cópia do ID Token gerado anteriormente em formato JWT</td>
+</tr>
+</tbody>
+</table>
 <p>Exemplo 1 de <strong>execução</strong> no front end em javascript</p>
 <pre><code class="language-javascript">var form = document.createElement(&quot;form&quot;);      
 form.setAttribute(&quot;method&quot;, &quot;post&quot;);
-form.setAttribute(&quot;action&quot;, &quot;https://sso.staging.acesso.gov.br/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&quot;);
+form.setAttribute(&quot;action&quot;, &quot;https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&amp;id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...&quot;);
 document.body.appendChild(form);  
 form.submit();
 </code></pre>
 <p>Exemplo 2 de <strong>execução</strong> no front end em javascript</p>
-<pre><code class="language-javascript">window.location.href='https://sso.staging.acesso.gov.br/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html';   
-</code></pre>
-<h1 id="acesso-ao-servico-de-cadastro-de-pessoas-juridicas">Acesso ao Serviço de Cadastro de Pessoas Jurídicas</h1>
-<p>O Login Único disponibiliza dois serviços para acesso a informações de
-Pessoa Jurídica. O primeiro apresenta todos os CNPJs cadastrados para um
-determinado usuário. O segundo, utiliza desse CNPJ para extrair
-informações cadastradas no Login Único para aquela pessoa e empresa.</p>
-<p>Para acessar o serviço que disponibiliza os CNPJs vinculados a um
-determinado usuário, é necessário o seguinte:</p>
-<ol>
-<li>Na requisição de autenticação, adicionar o escopo "govbr_empresa",
-    conforme exemplo:</li>
-</ol>
-<p>Exemplo de requisição</p>
-<pre><code class="language-console">https://sso.staging.acesso.gov.br/authorize?response_type=code&amp;client_id=minha-aplicacao&amp;scope=openid+(email/phone)+profile+govbr_empresa&amp;redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&amp;nonce=3ed8657fd74c&amp;state=358578ce6728b
-</code></pre>
-<ol>
-<li>Com o usuário autenticado, a aplicação deverá realizar uma
-    requisição por meio do método GET a URL
-    <a href="https://api.staging.acesso.gov.br/empresas/v2/empresas?filtrar-por-participante=">https://api.staging.acesso.gov.br/empresas/v2/empresas?filtrar-por-participante=</a><strong>cpf</strong>
-    enviando as seguintes informações:</li>
-</ol>
-<p>Parâmetros para requisição GET
-<a href="https://api.staging.acesso.gov.br/empresas/v2/empresas?filtrar-por-participante=cpf">https://api.staging.acesso.gov.br/empresas/v2/empresas?filtrar-por-participante=cpf</a></p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a>
-  <strong>cpf</strong>             CPF do cidadão (sem ponto, barra etc).</p>
-<ol>
-<li>O resultado em formato JSON é a lista de CNPJs do CPF autenticado,
-    conforme o exemplo abaixo:</li>
-</ol>
-<p>Exemplo de requisição</p>
-<pre><code class="language-JSON">[
-    {
-    &quot;cnpj&quot;: &quot;(Número de CNPJ da empresa vinculada)&quot;,
-    &quot;razaoSocial&quot;: &quot;(Razão Social (Nome da empresa) cadastrada na Receita Federal)&quot;,
-    &quot;dataCriacao&quot;: &quot;(Mostra a data e hora da vinculação do CNPJ a conta do usuário. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-    }
-]
-</code></pre>
-<ol>
-<li>Com o usuário autenticado, a aplicação cliente deverá acessar, por
-    meio do método GET, a URL
-    <a href="https://api.staging.acesso.gov.br/empresas/v2/empresas/">https://api.staging.acesso.gov.br/empresas/v2/empresas/</a><strong>cnpj</strong>/participantes/<strong>cpf</strong>
-    enviando as seguintes informações:</li>
-</ol>
-<p>Parâmetros para requisição GET
-<a href="https://api.staging.acesso.gov.br/empresas/v2/empresas/">https://api.staging.acesso.gov.br/empresas/v2/empresas/</a><strong>cnpj</strong>/participantes/<strong>cpf</strong></p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a>
-  <strong>cpf</strong>             CPF do cidadão (sem ponto, barra etc).
-  <strong>cnpj</strong>            CNPJ da empresa (sem ponto, barra etc).</p>
-<ol>
-<li>O resultado em formato JSON é o detalhamento do CNPJ do CPF
-    autenticado, conforme o exemplo abaixo:</li>
-</ol>
-<p>Exemplo de requisição</p>
-<pre><code class="language-JSON">{
-&quot;cpf&quot;: &quot;(Número do CPF que pode atuar com empresa)&quot;,
-&quot;atuacao&quot;: &quot;(Papel do CPF na empresa na Receita Federal. O conteúdo será SOCIO, CONTADOR, REPRESENTANTE_LEGAL ou NAO_ATUANTE. O NAO_ATUANTE representa CPF possui certificado digital de pessoa jurídica, porém não possui um papel na empresa na base da Receita Federal. Se CPF for colaborador, atributo atuacao não aparecerá)&quot;,
-&quot;cadastrador&quot;: &quot;(Identifica se o CPF pode realizar cadastro de colaboradores para CNPJ. O conteúdo false determinar que o CPF é um colaborador da empresa. O conteúdo true determina CPF é representante da empresa com certificado digital de pessoal jurídica)&quot;,
-&quot;cpfCadastrador&quot;: &quot;(CPF responsável por realizar cadastro do Colaborador. Se CPF apresentar atributo cadastrador com conteúdo true, o atributo cpfCadastrador não aparecerá)&quot;,
-&quot;dataCriacao&quot;: &quot;(Mostra a data e hora da vinculação do CPF ao CNPJ. A mascará será YYYY-MM-DD HH:MM:SS)&quot;,
-&quot;dataExpiracao&quot;: &quot;(Mostra a data e hora que o CPF poderá atuar com CNPJ. A mascará será YYYY-MM-DD HH:MM:SS)&quot;
-}
-</code></pre>
-<h1 id="acesso-ao-servico-de-recuperacao-do-tipo-de-certificado">Acesso ao Serviço de Recuperação do Tipo de Certificado</h1>
-<ol>
-<li>Na requisição de autenticação, adicionar o escopo
-    "govbr_recupera_certificadox509", conforme exemplo:</li>
-</ol>
-<p>Exemplo de requisição</p>
-<pre><code class="language-console">https://sso.staging.acesso.gov.br/authorize?response_type=code&amp;client_id=minha-aplicacao&amp;scope=openid+email+phone+profile+govbr_recupera_certificadox509&amp;redirect_uri=http%3A%2F%2Fappcliente.com.br%2Fphpcliente%2Floginecidadao.Php&amp;nonce=3ed8657fd74c&amp;state=358578ce6728b
-</code></pre>
-<ol>
-<li>Com o usuário autenticado, a aplicação deverá realizar uma
-    requisição por meio do método GET a URL
-    <a href="https://sso.staging.acesso.gov.br/api/x509/info">https://sso.staging.acesso.gov.br/api/x509/info</a> enviando as
-    seguintes informações:</li>
-</ol>
-<p>Parâmetros para requisição GET
-<a href="https://sso.staging.acesso.gov.br/api/x509/info">https://sso.staging.acesso.gov.br/api/x509/info</a></p>
-<p><strong>Variavél</strong>        <strong>Descrição</strong></p>
-<hr />
-<p><strong>Authorization</strong>   palavra <strong>Bearer</strong> e o <em>ACCESS_TOKEN</em> da requisição POST do <a href="https://sso.staging.acesso.gov.br/token">https://sso.staging.acesso.gov.br/token</a></p>
-<ol>
-<li>O resultado em formato JSON é tipo de certificado da autenticação,
-    conforme o exemplo abaixo:</li>
-</ol>
-<p>Exemplo de requisição</p>
-<pre><code class="language-JSON">[
-    {
-      &quot;provider&quot;:&quot;(Indicará qual o provedor disponibilizará o certificado. Aparecerá para certificado em nuvem)&quot;,
-      &quot;amr&quot;:[&quot;(Lista de forma de certificados autenticados. Padrão é x509)&quot;],
-      &quot;certificate&quot;:&quot;(Demonstra o nome do cerfificado da autenticação)&quot;,
-      &quot;type&quot;:&quot;(Informa qual tipo de certificado utilizado para autenticação. O contéudo será &lt;device&gt; para certificados A1 e A3 e &lt;cloud&gt; para indicar certificado em núvem)&quot;
-    }
-]
-</code></pre>
-<h1 id="resultados-esperados-ou-erros-do-acesso-ao-servicos-do-login-unico">Resultados Esperados ou Erros do Acesso ao Serviços do Login Único</h1>
-<p>Os acessos aos serviços do Login Único ocorrem por meio de chamadas de
-URLs e as respostas são códigos presentes conforme padrão do protocolo
-http por meio do retorno JSON, conforme exemplo:</p>
-<pre><code class="language-JSON">{
-  &quot;error&quot;: &quot;(Código HTTP do erro)&quot;,
-  &quot;erro_description&quot;: &quot;(Descrição detalhada do erro ocorrido. )&quot;
-}
+<pre><code class="language-javascript">window.location.href='https://mprivado.validacao.acesso.gov.br/auth/realms/govbrautentica/protocol/openid-connect/logout?post_logout_redirect_uri=https://www.minha-aplicacao.gov.br/retorno.html&amp;id_token_hint=eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI3QXg2dGpHcDl...';   
 </code></pre>
 
               
@@ -1213,7 +1012,7 @@ http por meio do retorno JSON, conforme exemplo:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../vertopal.com_execucaoexemplo/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exemplo de execução" rel="prev">
+        <a href="../vertopal.com_solicitarconfiguracao/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Solicitar configuração" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1222,20 +1021,20 @@ http por meio do retorno JSON, conforme exemplo:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Exemplo de execução
+              Solicitar configuração
             </div>
           </div>
         </a>
       
       
         
-        <a href="../vertopal.com_exemplointegracao/" class="md-footer__link md-footer__link--next" aria-label="Next: Exemplo de integração" rel="next">
+        <a href="../vertopal.com_exemplointegracao/" class="md-footer__link md-footer__link--next" aria-label="Next: Exemplo de implementação" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Exemplo de integração
+              Exemplo de implementação
             </div>
           </div>
           <div class="md-footer__button md-icon">
