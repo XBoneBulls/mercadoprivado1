@@ -14,6 +14,10 @@ nav:
       - Configurar a integração: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_iniciarintegracao.md
       - Exemplo de implementação: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_exemplointegracao.md
       - Execução do exemplo de implementação: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_execucaoexemplo.md
+  - Dúvidas Frequentes:
+      - Validação de dados pessoais: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/validacao-dados-pessoais.md
+      - Validação de dados previdenciários: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/validacao-dados-previdenciarios.md
+
 
 theme: 
  name: material
