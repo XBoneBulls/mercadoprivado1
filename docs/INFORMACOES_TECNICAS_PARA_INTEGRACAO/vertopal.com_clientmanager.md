@@ -24,4 +24,5 @@ Após acessá-lo será possível realizar várias ações:
 4. Exclusão de dados
 
 ![](./CLIENT_MANAGER_FLUXO_IMG4.jpg)
+![](./CLIENT_MANAGER_)
 

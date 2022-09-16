@@ -1,6 +1,3 @@
-## Aquisição do Selo Cadastro Básico com Validação de Dados Pessoais
-
-### Como Atribuir o Selo Cadastro Básico com Validação de Dados Pessoais
 
 1- Selecione a opção Número do CPF
 

@@ -1,9 +1,4 @@
 
-
-## Aquisição do Selo Cadastro Básico com Validação de Dados Previdenciarios
-
-### Como Atribuir o Selo Cadastro Básico com Validação de Dados Previdenciarios
-
 1- Digite o CPF na tela inicial do https://acesso.gov.br e clique no botão Continuar.
 
 ![](CATALOGO-VALIDACAO-DADOS-PREVIDENCIARIOS-IMG1.webp)
