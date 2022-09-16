@@ -15,6 +15,7 @@ nav:
       - Exemplo de implementação: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_exemplointegracao.md
       - Execução do exemplo de implementação: INFORMACOES_TECNICAS_PARA_INTEGRACAO/vertopal.com_execucaoexemplo.md
   - Dúvidas Frequentes:
+      - README: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/README.md
       - Validação de dados pessoais: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/validacao-dados-pessoais.md
       - Validação de dados previdenciários: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/validacao-dados-previdenciarios.md
       - Atribuição de Selo Balcão Presencial: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/aquisicao-selo-balcao-presencial-inss.md
@@ -22,6 +23,8 @@ nav:
       - Atribuição de Selo Cadastro Básico com Validação em Base de Dados de Servidores Públicos da União: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/atribuicao-selo-cadastro-basico-servidores.md
       - Atribuição de Selo Validação Facial: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/atribuicao-selo-validacao-facial.md
       - Atribuição de Selo de Cada Banco Credenciado: LEGISLACAO_E_CONCEITOS/DUVIDAS_FREQUENTES/atribuicao-selo-banco-credenciado.md
+
+   
 
 
 

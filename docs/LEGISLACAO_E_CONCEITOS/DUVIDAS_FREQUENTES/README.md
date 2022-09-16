@@ -37,8 +37,10 @@ $ git clone git@gitcorporativo.serpro:brcidadao-10225/acesso-gov-mercado-privado
 # Acesse a pasta do projeto no terminal/cmd
 $ cd acesso-gov-mercado-privado
 
-# Instale o mkdocs
+# Instale o mkdocs e instale as extensões
 $ pip install mkdocs
+$ pip install mkdocs-material
+$ pip install pymdown-extensions --force
 
 # Mande servir a página
 $ mkdocs serve
@@ -62,4 +64,7 @@ Tecnologias
 
 
 
+Limitações:
 
+
+> Não é possível fazer links dentro de uma mesma página .md sem usar como link um tópico que não termine em um número (Passo 1, Passo 2 ...). Exemplo: se quero ir para uma parte da página específica que dá orientações, terei que fazer o link usando ou criando algo assim "Orientação 1". E para cada nova situação será necessário criar um tópico (Orientação 2) ou utilizar um que termine com uma numeração, assim como no exemplo citado.
